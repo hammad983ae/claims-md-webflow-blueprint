@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 interface HeroBannerProps {
   title: string;
@@ -21,21 +22,25 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
       
       <div className="container-custom relative z-10 py-24 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in relative">
             {title}
+            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-claimsOrange transform origin-left animate-slide-in" style={{ animationDelay: '0.5s' }}></span>
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300">
             {subtitle}
           </p>
           
-          <div className="animate-fade-in animation-delay-600">
+          <div className="animate-fade-in animation-delay-600 group">
             <Button 
               size="lg" 
-              className="bg-claimsOrange hover:bg-orange-600 text-white font-medium px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-claimsOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-medium px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               asChild
             >
-              <Link to={ctaLink}>{ctaText}</Link>
+              <Link to={ctaLink} className="flex items-center">
+                {ctaText}
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
             </Button>
           </div>
         </div>
