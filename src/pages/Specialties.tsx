@@ -23,7 +23,7 @@ const Specialties = () => {
       title: 'Orthopedics',
       description: 'Comprehensive billing services for orthopedic surgeries, treatments, and rehabilitation.',
       icon: <Calendar size={32} />,
-      features: ['Surgical procedure coding', 'Worker's compensation expertise', 'DME billing']
+      features: ['Surgical procedure coding', "Worker's compensation expertise", 'DME billing']
     },
     {
       title: 'Neurology',
