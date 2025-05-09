@@ -13,6 +13,16 @@ interface HeroBannerProps {
 const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
   return (
     <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=2000" 
+          alt="Medical billing background" 
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-claimsBlue/90 to-indigo-900/90"></div>
+      </div>
+      
       {/* Abstract background pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1vcGFjaXR5PSIwLjA1Ij48cGF0aCBkPSJNMCAwaDY0MGwtMTQwIDE0MEgwVjB6IiAvPjxwYXRoIGQ9Ik02NDAgMGg2NDBWMTQwSDUwMEw2NDAgMHoiIC8+PC9nPjwvc3ZnPg==')] opacity-30 mix-blend-overlay"></div>
       
@@ -22,9 +32,9 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
       
       <div className="container-custom relative z-10 py-24 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in relative">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
             {title}
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-claimsOrange transform origin-left animate-slide-in" style={{ animationDelay: '0.5s' }}></span>
+            {/* Removed the underline span here */}
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300">
