@@ -2,6 +2,13 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { useToast } from '@/hooks/use-toast';
 
 interface HeroBannerProps {
   title: string;
@@ -10,7 +17,38 @@ interface HeroBannerProps {
   ctaLink: string;
 }
 
+const formSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+});
+
 const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      name: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      console.log(values);
+      setIsSubmitting(false);
+      form.reset();
+      toast({
+        title: "Contact request submitted",
+        description: "Thank you! We'll be in touch soon.",
+      });
+    }, 1000);
+  }
+
   return (
     <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-28">
       {/* Background Image with Overlay */}
@@ -30,27 +68,111 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-claimsOrange/20 rounded-full filter blur-3xl animate-blob"></div>
       <div className="absolute -bottom-32 -right-24 w-96 h-96 bg-blue-500/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
       
-      <div className="container-custom relative z-10 py-28 md:py-36">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-            {title}
-          </h1>
-          
-          <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300">
-            {subtitle}
-          </p>
-          
-          <div className="animate-fade-in animation-delay-600 group">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-claimsOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-medium px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              asChild
-            >
-              <Link to={ctaLink} className="flex items-center">
-                {ctaText}
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </Button>
+      <div className="container-custom relative z-10 py-32 md:py-38">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left column - Text content */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+              {title}
+            </h1>
+            
+            <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300">
+              {subtitle}
+            </p>
+            
+            <div className="animate-fade-in animation-delay-600 group hidden lg:block">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-claimsOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-medium px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                asChild
+              >
+                <Link to={ctaLink} className="flex items-center">
+                  {ctaText}
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right column - Form */}
+          <div className="animate-fade-in animation-delay-300">
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-claimsBlue mb-6 text-center">Get Started Today</h3>
+              
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input 
+                            placeholder="Full Name" 
+                            className="h-12 text-base" 
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input 
+                            placeholder="Email Address" 
+                            type="email" 
+                            className="h-12 text-base" 
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full h-12 bg-gradient-to-r from-claimsBlue to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center">
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Processing...
+                      </span>
+                    ) : (
+                      <span>Request Free Consultation</span>
+                    )}
+                  </Button>
+                  
+                  <p className="text-center text-xs text-gray-500 mt-4">
+                    By submitting this form, you agree to our <Link to="/privacy-policy" className="text-claimsBlue hover:underline">Privacy Policy</Link>.
+                  </p>
+                </form>
+              </Form>
+            </div>
+
+            <div className="mt-6 flex justify-center lg:hidden">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-claimsOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-medium px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                asChild
+              >
+                <Link to={ctaLink} className="flex items-center">
+                  {ctaText}
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
