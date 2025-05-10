@@ -1,8 +1,9 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import QuoteFormModal from './QuoteFormModal';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,6 +14,7 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -95,7 +97,10 @@ const Header = () => {
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-            <Button className="bg-claimsBlue hover:bg-blue-800">
+            <Button 
+              className="bg-claimsBlue hover:bg-blue-800"
+              onClick={() => setQuoteModalOpen(true)}
+            >
               Get a Quote
             </Button>
           </nav>
@@ -148,11 +153,25 @@ const Header = () => {
               )
             ))}
             <div className="px-4 pt-2">
-              <Button className="btn-primary w-full">Get a Quote</Button>
+              <Button 
+                className="btn-primary w-full"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setQuoteModalOpen(true);
+                }}
+              >
+                Get a Quote
+              </Button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Quote Form Modal */}
+      <QuoteFormModal 
+        open={quoteModalOpen} 
+        onOpenChange={setQuoteModalOpen} 
+      />
     </header>
   );
 };
