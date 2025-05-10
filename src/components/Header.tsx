@@ -13,22 +13,6 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrolled]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -63,11 +47,11 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
-      <div className={`mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl transition-all duration-300 ${scrolled ? 'bg-white/95 shadow-lg backdrop-blur-sm rounded-full md:rounded-full md:mx-4 lg:mx-8 mt-2' : 'bg-transparent'}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2">
+      <div className="bg-white/95 shadow-lg backdrop-blur-sm rounded-full md:rounded-full md:mx-4 lg:mx-8 mt-2 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl transition-all duration-300">
         <div className="flex items-center justify-between py-2">
           <Link to="/" className="flex items-center">
-            <div className={`font-bold text-2xl transition-colors duration-300 ${scrolled ? 'text-claimsBlue' : 'text-white'}`}>
+            <div className="font-bold text-2xl text-claimsBlue">
               <span className="text-claimsBlue">Claims</span>
               <span className="text-claimsOrange">MD</span>
             </div>
@@ -80,7 +64,7 @@ const Header = () => {
                 {mainNavItems.map((item) => (
                   item.hasSubmenu ? (
                     <NavigationMenuItem key={item.name}>
-                      <NavigationMenuTrigger className={`text-gray-700 hover:text-claimsBlue font-medium transition-colors ${!scrolled && 'text-white hover:text-white/80'}`}>
+                      <NavigationMenuTrigger className="text-gray-700 hover:text-claimsBlue font-medium transition-colors">
                         {item.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -102,7 +86,7 @@ const Header = () => {
                     <NavigationMenuItem key={item.name}>
                       <Link 
                         to={item.path}
-                        className={`text-gray-700 hover:text-claimsBlue font-medium transition-colors px-3 py-2 ${!scrolled && 'text-white hover:text-white/80'}`}
+                        className="text-gray-700 hover:text-claimsBlue font-medium transition-colors px-3 py-2"
                       >
                         {item.name}
                       </Link>
@@ -111,14 +95,14 @@ const Header = () => {
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-            <Button className={`${scrolled ? 'bg-claimsBlue hover:bg-blue-800' : 'bg-white text-claimsBlue hover:bg-gray-100'}`}>
+            <Button className="bg-claimsBlue hover:bg-blue-800">
               Get a Quote
             </Button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden ${scrolled ? 'text-gray-700' : 'text-white'}`}
+            className="md:hidden text-gray-700"
             onClick={toggleMobileMenu}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >

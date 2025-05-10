@@ -12,7 +12,7 @@ interface HeroBannerProps {
 
 const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
   return (
-    <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-24">
+    <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-28">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -30,7 +30,7 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-claimsOrange/20 rounded-full filter blur-3xl animate-blob"></div>
       <div className="absolute -bottom-32 -right-24 w-96 h-96 bg-blue-500/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
       
-      <div className="container-custom relative z-10 py-24 md:py-32">
+      <div className="container-custom relative z-10 py-28 md:py-36">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
             {title}
