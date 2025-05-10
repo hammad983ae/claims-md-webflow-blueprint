@@ -12,7 +12,7 @@ interface HeroBannerProps {
 
 const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
   return (
-    <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden">
+    <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-24">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -34,7 +34,6 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
             {title}
-            {/* Removed the underline span here */}
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300">
