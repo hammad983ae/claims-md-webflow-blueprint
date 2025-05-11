@@ -16,8 +16,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Roboto", ...fontFamily.sans],
-        serif: ["Merriweather", ...fontFamily.serif],
+        sans: ["Poppins", ...fontFamily.sans],
+        heading: ["Quicksand", ...fontFamily.serif],
+        outfit: ["Outfit", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -25,7 +26,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        claimsBlue: "#071078",
+        claimsBlue: "#2058a8",
         claimsOrange: "#ec7c04",
         primary: {
           DEFAULT: "hsl(var(--primary))",
