@@ -1,7 +1,7 @@
-
 import Layout from '@/components/Layout';
 import HeroBanner from '@/components/HeroBanner';
 import ServiceCard from '@/components/ServiceCard';
+import CalendlyWidget from '@/components/CalendlyWidget';
 import { Button } from '@/components/ui/button';
 import { Check, FileText, Shield, Calendar, ArrowRight, BarChart3, Users, HeartPulse } from 'lucide-react';
 
@@ -326,6 +326,19 @@ const Index = () => {
                 <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Calendly Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-8">Schedule Your Free Consultation</h2>
+          <p className="text-center text-gray-700 mb-12 max-w-3xl mx-auto">
+            Ready to optimize your medical billing process? Book a free consultation with our experts to discuss how ClaimsMD can help your practice increase revenue and reduce administrative burden.
+          </p>
+          <div className="bg-gray-50 rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
+            <CalendlyWidget url="https://calendly.com/claimsmd/free-consolations" />
           </div>
         </div>
       </section>
