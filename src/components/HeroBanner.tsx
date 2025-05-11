@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Send } from 'lucide-react';
 import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
@@ -96,24 +96,34 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
 
           {/* Right column - Form */}
           <div className="animate-fade-in animation-delay-300">
-            <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-8 transform transition-all duration-300 hover:shadow-2xl">
-              <h3 className="text-2xl font-bold text-claimsBlue mb-6 text-center">Get Started Today</h3>
+            <div className="relative backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl p-8 border border-white/20 overflow-hidden transform transition-all duration-300 hover:shadow-blue-400/20 hover:border-blue-300/30">
+              {/* Animated background effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 animate-gradient"></div>
+              
+              {/* Glowing corners */}
+              <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-400 to-transparent opacity-20 rounded-full blur-xl"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-purple-400 to-transparent opacity-20 rounded-full blur-xl"></div>
+              
+              <h3 className="text-2xl font-bold text-white mb-6 text-center relative">Get Started Today</h3>
               
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 relative z-10">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <Input 
-                            placeholder="Full Name" 
-                            className="h-12 text-base" 
-                            {...field} 
-                          />
+                          <div className="relative group">
+                            <Input 
+                              placeholder="Full Name" 
+                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4" 
+                              {...field} 
+                            />
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/40 to-purple-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
+                          </div>
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-300" />
                       </FormItem>
                     )}
                   />
@@ -124,21 +134,24 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <Input 
-                            placeholder="Email Address" 
-                            type="email" 
-                            className="h-12 text-base" 
-                            {...field} 
-                          />
+                          <div className="relative group">
+                            <Input 
+                              placeholder="Email Address" 
+                              type="email" 
+                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4" 
+                              {...field} 
+                            />
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600/40 to-blue-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
+                          </div>
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-300" />
                       </FormItem>
                     )}
                   />
                   
                   <Button 
                     type="submit" 
-                    className="w-full h-12 bg-gradient-to-r from-claimsBlue to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    className="w-full h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-white/10"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -150,15 +163,22 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
                         Processing...
                       </span>
                     ) : (
-                      <span>Request Free Consultation</span>
+                      <span className="flex items-center justify-center">
+                        Request Free Consultation
+                        <Send size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </span>
                     )}
                   </Button>
                   
-                  <p className="text-center text-xs text-gray-500 mt-4">
-                    By submitting this form, you agree to our <Link to="/privacy-policy" className="text-claimsBlue hover:underline">Privacy Policy</Link>.
+                  <p className="text-center text-xs text-white/70 mt-4">
+                    By submitting this form, you agree to our <Link to="/privacy-policy" className="text-blue-300 hover:text-blue-200 hover:underline">Privacy Policy</Link>.
                   </p>
                 </form>
               </Form>
+              
+              {/* Decorative elements */}
+              <div className="absolute top-1/2 left-0 w-1 h-16 bg-gradient-to-b from-transparent via-blue-400 to-transparent transform -translate-y-1/2 rounded-full"></div>
+              <div className="absolute top-1/2 right-0 w-1 h-16 bg-gradient-to-b from-transparent via-purple-400 to-transparent transform -translate-y-1/2 rounded-full"></div>
             </div>
 
             <div className="mt-6 flex justify-center lg:hidden">
