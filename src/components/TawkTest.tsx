@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 const TawkTo = () => {
   useEffect(() => {
+    // Check if the script is already loaded
     if (document.getElementById('tawkToScript')) return;
 
     const script = document.createElement('script');
