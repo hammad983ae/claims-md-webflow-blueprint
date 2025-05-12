@@ -30,20 +30,27 @@ const Header = () => {
     { name: 'New Practice Setup', path: '/services/new-practice-setup' },
     { name: 'Reputation Management', path: '/services/reputation-management' },
     { name: 'Value Added Services', path: '/services/value-added-services' },
+    { name: 'Healthcare Digital Marketing', path: '/services/healthcare-digital-marketing' },
+    
+  ];
+
+  const valueItems = [
     { name: 'Revenue Cycle Management', path: '/services/revenue-cycle-management' },
     { name: 'A/R Management Services', path: '/services/ar-management-services' },
     { name: 'Patient Billing Audit', path: '/services/patient-billing-audit' },
     { name: 'Billing Review Services', path: '/services/billing-review-services' },
-    { name: 'Healthcare Digital Marketing', path: '/services/healthcare-digital-marketing' },
+    
   ];
 
   const mainNavItems = [
     { name: 'Home', path: '/' },
-    { name: 'Why ClaimsMD', path: '/why-claims-md' },
+    // { name: 'Why ClaimsMD', path: '/why-claims-md' },
     { name: 'Services', path: '/services', hasSubmenu: true, submenuItems: serviceItems },
+    { name: 'Value Added Services', path: '/services/value-added-services', hasSubmenu: true, submenuItems: valueItems },
     { name: 'Specialties', path: '/specialties' },
-    { name: 'Message From CEO', path: '/message-from-ceo' },
-    { name: 'Blog', path: '/blog' },
+    // { name: 'Healthcare Digital Marketing', path: '/services/healthcare-digital-marketing' },
+    // { name: 'Message From CEO', path: '/message-from-ceo' },
+    // { name: 'Blog', path: '/blog' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Index from '@/pages/Index';
 import Services from '@/pages/Services';
@@ -27,6 +27,8 @@ import BillingReviewServices from '@/pages/services/BillingReviewServices';
 import HealthcareDigitalMarketing from '@/pages/services/HealthcareDigitalMarketing';
 import MessageFromCEO from '@/pages/MessageFromCEO';
 import WhyClaimsMD from '@/pages/WhyClaimsMD';
+import TawTo from './components/TawTo';
+import TawkTest from './components/TawkTest';
 
 const router = createBrowserRouter([
   {
@@ -132,9 +134,28 @@ const router = createBrowserRouter([
   },
 ]);
 
+// useEffect(() => {
+//   var Tawk_API = Tawk_API || {};
+//   var Tawk_LoadStart = new Date();
+
+//   const s1 = document.createElement("script");
+//   s1.src = 'https://embed.tawk.to/67bf083c1722de190a434d04/default';
+//   s1.async = true;
+//   s1.charset = 'UTF-8';
+//   s1.setAttribute('crossorigin', '*');
+  
+//   document.body.appendChild(s1);
+
+//   return () => {
+//     // Clean up script on unmount if needed
+//     document.body.removeChild(s1);
+//   };
+// }, []);
+
 function App() {
   return (
     <React.StrictMode>
+      <TawkTest />
       <RouterProvider router={router} />
     </React.StrictMode>
   );

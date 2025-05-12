@@ -24,7 +24,7 @@ const ServiceDetail = ({
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-claimsBlue to-indigo-800">
+      <section className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">
           <div className="max-w-3xl text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
