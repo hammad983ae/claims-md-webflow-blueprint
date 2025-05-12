@@ -175,7 +175,7 @@ const Specialties = () => {
     },
     {
       title: 'Obstetrics & Gynecology',
-      description: 'Comprehensive billing for women's health, pregnancy care, and gynecological procedures.',
+      description: 'Comprehensive billing for women\'s health, pregnancy care, and gynecological procedures.',
       icon: <Calendar size={32} />,
       features: ['Global OB package billing', 'GYN procedure coding', 'Pregnancy complication billing']
     },
