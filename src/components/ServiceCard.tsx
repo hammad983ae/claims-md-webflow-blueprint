@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon, link }: ServiceCardProps) => {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group h-full flex flex-col justify-between">
+    <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group h-full flex flex-col justify-between hover:translate-y-[-5px]">
       {/* Accent color line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-claimsBlue to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
       
@@ -32,13 +32,13 @@ const ServiceCard = ({ title, description, icon, link }: ServiceCardProps) => {
       {/* Link with animation */}
       <Link 
         to={link} 
-        className="inline-flex items-center text-claimsBlue font-medium mt-2 relative"
+        className="inline-flex items-center text-claimsBlue font-medium mt-2 relative overflow-hidden group-hover:font-semibold"
       >
         <span className="relative z-10 flex items-center">
           Learn more
           <ArrowRight size={16} className="ml-2 transform group-hover:translate-x-2 transition-transform duration-300" />
         </span>
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-claimsBlue/20 transform origin-left group-hover:scale-x-100 scale-x-0 transition-transform"></span>
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-claimsBlue/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
       </Link>
     </div>
   );

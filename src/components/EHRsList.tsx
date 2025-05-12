@@ -53,9 +53,9 @@ const EHRsList = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-center hover:shadow-lg transition-shadow"
+              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]"
             >
-              <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-100 mb-4 flex items-center justify-center border border-gray-200">
+              <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-100 mb-4 flex items-center justify-center border border-gray-200 group-hover:border-claimsBlue transition-colors hover:border-claimsBlue hover:shadow-md">
                 <img 
                   src={ehr.logo} 
                   alt={`${ehr.name} logo`} 
@@ -69,7 +69,7 @@ const EHRsList = () => {
         
         <div className="text-center mt-8">
           <p className="text-sm text-gray-600">
-            Don't see your EHR? <a href="/contact" className="text-claimsBlue hover:underline">Contact us</a> – we likely support it or can integrate with your solution.
+            Don't see your EHR? <a href="/contact" className="text-claimsBlue hover:underline hover:text-claimsOrange transition-colors">Contact us</a> – we likely support it or can integrate with your solution.
           </p>
         </div>
       </div>

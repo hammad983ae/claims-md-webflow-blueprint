@@ -60,10 +60,11 @@ const Header = () => {
       <div className="bg-white/95 shadow-lg backdrop-blur-sm rounded-full md:rounded-full md:mx-4 lg:mx-8 mt-2 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl transition-all duration-300">
         <div className="flex items-center justify-between py-2">
           <Link to="/" className="flex items-center">
-            <div className="font-bold text-2xl text-claimsBlue">
-              <span className="text-claimsBlue">Claims</span>
-              <span className="text-claimsOrange">MD</span>
-            </div>
+            <img 
+              src="/lovable-uploads/09c5b379-6ce8-491b-a1f7-0a3750cb2ed4.png" 
+              alt="ClaimsMD Logo" 
+              className="h-12 md:h-14" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -161,7 +162,7 @@ const Header = () => {
             ))}
             <div className="px-4 pt-2">
               <Button 
-                className="btn-primary w-full"
+                className="w-full bg-claimsBlue hover:bg-blue-800 hover:scale-105 transition-all"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setQuoteModalOpen(true);
