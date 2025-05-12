@@ -9,6 +9,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface HeroBannerProps {
   title: string;
@@ -18,8 +25,15 @@ interface HeroBannerProps {
 }
 
 const formSchema = z.object({
+  service: z.string({
+    required_error: "Please select a service",
+  }),
+  provider: z.string({
+    required_error: "Please select a provider",
+  }),
+  fullName: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  phoneNumber: z.string().min(10, { message: "Please enter a valid phone number" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
 });
 
 const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
@@ -29,8 +43,11 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      service: "",
+      provider: "",
+      fullName: "",
+      phoneNumber: "",
       email: "",
-      name: "",
     },
   });
 
@@ -48,6 +65,28 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
       });
     }, 1000);
   }
+
+  const services = [
+    "Medical Billing Audit",
+    "Denial Management",
+    "Patient Eligibility Verification",
+    "Credentialing & Enrollment",
+    "Account Receivable Management",
+    "Healthcare Digital Marketing",
+    "Revenue Cycle Management",
+    "Billing Review Services",
+  ];
+
+  const providers = [
+    "Independent Physicians",
+    "Group Practices",
+    "Hospitals",
+    "Ambulatory Surgery Centers",
+    "Urgent Care Centers",
+    "Mental Health Providers",
+    "Physical Therapy Practices",
+    "Specialty Clinics",
+  ];
 
   return (
     <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-28">
@@ -72,11 +111,11 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Text content */}
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in font-quicksand">
               {title}
             </h1>
             
-            <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300">
+            <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300 font-poppins">
               {subtitle}
             </p>
             
@@ -104,23 +143,112 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
               <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-400 to-transparent opacity-20 rounded-full blur-xl"></div>
               <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-purple-400 to-transparent opacity-20 rounded-full blur-xl"></div>
               
-              <h3 className="text-2xl font-bold text-white mb-6 text-center relative">Get Started Today</h3>
+              <h3 className="text-2xl font-bold text-white mb-6 text-center relative font-quicksand">Get Started Today</h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 relative z-10">
                   <FormField
                     control={form.control}
-                    name="name"
+                    name="service"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="relative group">
+                            <Select 
+                              onValueChange={field.onChange} 
+                              defaultValue={field.value}
+                            >
+                              <SelectTrigger className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                                <SelectValue placeholder="Choose a Service" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-white/95 backdrop-blur-md border-white/30 focus:ring-2 focus:ring-blue-400">
+                                {services.map((service, index) => (
+                                  <SelectItem 
+                                    key={index} 
+                                    value={service.toLowerCase().replace(/\s+/g, '-')}
+                                    className="font-poppins"
+                                  >
+                                    {service}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/40 to-purple-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
+                          </div>
+                        </FormControl>
+                        <FormMessage className="text-red-300" />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="provider"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="relative group">
+                            <Select 
+                              onValueChange={field.onChange} 
+                              defaultValue={field.value}
+                            >
+                              <SelectTrigger className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                                <SelectValue placeholder="Choose Provider Type" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-white/95 backdrop-blur-md border-white/30 focus:ring-2 focus:ring-blue-400">
+                                {providers.map((provider, index) => (
+                                  <SelectItem 
+                                    key={index} 
+                                    value={provider.toLowerCase().replace(/\s+/g, '-')}
+                                    className="font-poppins"
+                                  >
+                                    {provider}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600/40 to-blue-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
+                          </div>
+                        </FormControl>
+                        <FormMessage className="text-red-300" />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="fullName"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
                           <div className="relative group">
                             <Input 
                               placeholder="Full Name" 
-                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4" 
+                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4 font-poppins" 
                               {...field} 
                             />
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/40 to-purple-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
+                          </div>
+                        </FormControl>
+                        <FormMessage className="text-red-300" />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="phoneNumber"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="relative group">
+                            <Input 
+                              placeholder="Phone Number" 
+                              type="tel" 
+                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4 font-poppins" 
+                              {...field} 
+                            />
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-orange-600/40 to-yellow-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
                           </div>
                         </FormControl>
                         <FormMessage className="text-red-300" />
@@ -138,7 +266,7 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
                             <Input 
                               placeholder="Email Address" 
                               type="email" 
-                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4" 
+                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4 font-poppins" 
                               {...field} 
                             />
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600/40 to-blue-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
@@ -151,7 +279,7 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-white/10"
+                    className="w-full h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-white/10 font-poppins"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
