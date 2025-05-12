@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import PWP from '../../Assets/Pregnant Woman at Prenatal Examination.jpeg';
 
 const PatientEligibilityVerification = () => {
   return (
@@ -8,7 +9,7 @@ const PatientEligibilityVerification = () => {
       <ServiceDetail
         title="Patient Eligibility Verification"
         description="Accurate verification of patient insurance coverage to reduce claim rejections and denials before services are rendered."
-        image="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
+        image= {PWP}
         features={[
           "Real-time insurance verification",
           "Patient benefit explanation",

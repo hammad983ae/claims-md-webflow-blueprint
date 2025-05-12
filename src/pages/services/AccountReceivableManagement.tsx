@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import Confifent from  '../../Assets/Confident Dentist.jpeg';
 
 const AccountReceivableManagement = () => {
   return (
@@ -8,7 +9,7 @@ const AccountReceivableManagement = () => {
       <ServiceDetail
         title="Account Receivable Management"
         description="Proactive management of outstanding claims to improve cash flow and reduce days in A/R."
-        image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+        image= {Confifent}
         features={[
           "Aging account analysis and prioritization",
           "Proactive follow-up on unpaid claims",

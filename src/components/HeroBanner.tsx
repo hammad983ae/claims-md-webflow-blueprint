@@ -93,7 +93,7 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=2000" 
+          src="https://www.lummi.ai/api/render/image/831cbb27-173b-4ad4-8ad9-5a23982b4c44?token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjgzMWNiYjI3LTE3M2ItNGFkNC04YWQ5LTVhMjM5ODJiNGM0NCIsImRvd25sb2FkU2l6ZSI6Im1lZGl1bSIsInJlbmRlclNwZWNzIjp7ImVmZmVjdHMiOnsicmVmcmFtZSI6e319fSwic2hvdWxkQXV0b0Rvd25sb2FkIjpmYWxzZSwianRpIjoiMFZ4TXhSel9uMk1GYURQRFdTbUpHIiwiaWF0IjoxNzQ3MDc4Mzc2LCJleHAiOjE3NDcwNzg0MzZ9.SaOyJMjATT2RmY-4BkwodscghmKIa5oQ1Uo6E_mbWAQ" 
           alt="Medical billing background" 
           className="w-full h-full object-cover object-center"
         />

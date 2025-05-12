@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import CHP from '../../Assets/Confident Healthcare Professional in Modern Clinic.jpeg';
 
 const ARManagementServices = () => {
   return (
@@ -8,6 +9,7 @@ const ARManagementServices = () => {
       <ServiceDetail
         title="A/R Management Services"
         description="Specialized accounts receivable management services focused on resolving aging accounts and improving cash flow."
+         image= {CHP}
         features={[
           "Aging A/R analysis and work-down",
           "Targeted intervention for high-value claims",

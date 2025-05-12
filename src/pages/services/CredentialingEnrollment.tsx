@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import HC from '../../Assets/Healthcare Consultation.jpeg';
 
 const CredentialingEnrollment = () => {
   return (
@@ -8,6 +9,7 @@ const CredentialingEnrollment = () => {
       <ServiceDetail
         title="Credentialing & Enrollment"
         description="Streamlined provider credentialing and insurance enrollment to ensure proper reimbursement."
+        image= {HC}
         features={[
           "Provider enrollment with government and commercial payers",
           "CAQH ProView profile management",

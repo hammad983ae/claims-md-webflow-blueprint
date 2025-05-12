@@ -1,13 +1,14 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-
+import CMP from '../../Assets/Confident Medical Professional.jpeg';
 const BillingReviewServices = () => {
   return (
     <Layout>
       <ServiceDetail
         title="Billing Review Services"
         description="Thorough evaluation of your current billing operations to identify opportunities for improvement and optimization."
+        image= {CMP}
         features={[
           "Comprehensive billing operations assessment",
           "Documentation and coding review",

@@ -16,6 +16,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   phone: z.string().min(10, { message: "Please enter a valid phone number." }),
+  businessName: z.string().min(1, {message:"Please enter a valid company name"}),
   specialty: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
@@ -41,6 +42,7 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
       phone: "",
       specialty: "",
       message: "",
+      businessName:"",
     },
   });
 
@@ -113,14 +115,14 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
                 
                 <FormField
                   control={form.control}
-                  name="email"
+                  name="businessName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>Business Name</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input placeholder="john@example.com" type="email" className="pl-10" {...field} />
+                          <Input placeholder="XYZ" type="text" className="pl-10" {...field} />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -132,14 +134,14 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <FormField
                   control={form.control}
-                  name="phone"
+                  name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
+                      <FormLabel>Emaik</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input placeholder="(123) 456-7890" className="pl-10" {...field} />
+                          <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input placeholder="abc@company.comm" className="pl-10" {...field} />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -149,12 +151,16 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
                 
                 <FormField
                   control={form.control}
-                  name="specialty"
+                  name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Medical Specialty (Optional)</FormLabel>
+                      <FormLabel>Phone</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., Cardiology, Orthopedics" {...field} />
+                        
+                      <div className="relative">
+                          <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input placeholder="+1 (123) 456 780" className="pl-10" {...field} />
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

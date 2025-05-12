@@ -3,7 +3,7 @@ import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Calendar, Users, FileText, Shield } from 'lucide-react';
-
+import DEW from '../Assets/Doctor Engaging with Patient.jpeg'
 const About = () => {
   const timeline = [
     {
@@ -74,7 +74,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 py-20">
+      <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">About ClaimsMD</h1>
@@ -95,21 +95,19 @@ const About = () => {
               <h2 className="text-3xl font-bold text-claimsBlue mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  ClaimsMD was founded in 2010 with a simple mission: to transform the medical billing 
-                  experience for healthcare providers. We recognized that providers were spending too 
-                  much time on administrative tasks and not enough time with patients.
+                At ClaimsMD, we believe that healthcare providers should be able to focus on what they do best – delivering exceptional patient care – without being burdened
+by the complexities of medical billing. That’s why we’ve made it our mission to provide innovative, reliable, and personalized medical billing solutions that
+optimize your revenue cycle, reduce administrative burdens, and ensure compliance.
                 </p>
                 <p>
-                  Our founder, Dr. Elizabeth Chen, experienced these challenges firsthand as a practicing 
-                  physician. Frustrated with the complexity of medical billing and the impact it had on 
-                  her practice, she assembled a team of billing experts and technology innovators to create 
-                  a better solution.
+                Since our founding, ClaimsMD has grown into a trusted partner for healthcare providers across the country. From small practices to large healthcare
+                organizations, we’ve helped countless providers streamline their billing processes, maximize revenue, and achieve financial stability.
                 </p>
-                <p>
+                {/* <p>
                   Today, ClaimsMD serves hundreds of healthcare providers across the country, from small 
                   independent practices to large multi-specialty groups. Our approach combines deep industry 
                   expertise, cutting-edge technology, and personalized service to deliver exceptional results.
-                </p>
+                </p> */}
               </div>
               <div className="mt-6">
                 <Link to="/message-from-ceo">
@@ -121,7 +119,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=1600" 
+                src={DEW} 
                 alt="ClaimsMD Team" 
                 className="rounded-lg shadow-xl w-full"
               />

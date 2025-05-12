@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import HPC from '../../Assets/Healthcare Professional in Clinic.jpeg';
 
 const DenialManagement = () => {
   return (
@@ -8,7 +9,7 @@ const DenialManagement = () => {
       <ServiceDetail
         title="Denial Management"
         description="Expert handling of claim denials to maximize reimbursements and reduce revenue loss."
-        image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1600"
+        image= {HPC}
         features={[
           "Comprehensive denial analysis and categorization",
           "Timely appeal filing and follow-up",

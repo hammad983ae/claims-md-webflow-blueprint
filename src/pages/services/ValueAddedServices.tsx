@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import CMP from '../../Assets/Confident Medical Professional.jpeg';
 
 const ValueAddedServices = () => {
   return (
@@ -8,6 +9,7 @@ const ValueAddedServices = () => {
       <ServiceDetail
         title="Value Added Services"
         description="Supplementary services designed to enhance your practice's operational efficiency and financial performance."
+        image= {CMP}
         features={[
           "Custom reporting and analytics",
           "Provider productivity analysis",

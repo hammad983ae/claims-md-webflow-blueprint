@@ -48,7 +48,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 py-20">
+      <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
@@ -159,7 +159,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-medium text-gray-700">Email Us</h3>
                       <a href="mailto:info@claimsmd.com" className="text-claimsBlue hover:underline">
-                        info@claimsmd.com
+                        info@claimsmd.net
                       </a>
                     </div>
                   </div>

@@ -1,13 +1,14 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-
+import MPF from '../../Assets/Medical Professional Focus.jpeg';
 const ReputationManagement = () => {
   return (
     <Layout>
       <ServiceDetail
         title="Reputation Management"
         description="Comprehensive reputation management services to build and maintain your practice's online presence and patient trust."
+        image= {MPF}
         features={[
           "Online review monitoring and management",
           "Patient satisfaction survey implementation",

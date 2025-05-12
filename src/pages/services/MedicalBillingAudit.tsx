@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import HP from '../../Assets/Healthcare Professional.jpeg';
 
 const MedicalBillingAudit = () => {
   return (
@@ -8,7 +9,7 @@ const MedicalBillingAudit = () => {
       <ServiceDetail
         title="Medical Billing Audit"
         description="Our comprehensive medical billing audit service identifies errors, inefficiencies, and opportunities for improvement in your healthcare organization's billing processes."
-        image="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=1600"
+        image= {HP}
         features={[
           "Complete end-to-end billing process review",
           "Identification of coding and billing errors",

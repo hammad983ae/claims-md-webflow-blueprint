@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import PMC from '../../Assets/Professional Medical Consultation.jpeg';
 
 const NewPracticeSetup = () => {
   return (
@@ -8,6 +9,7 @@ const NewPracticeSetup = () => {
       <ServiceDetail
         title="New Practice Setup"
         description="Complete support for new medical practices, from EHR selection to billing setup and staff training."
+        image={PMC}
         features={[
           "EHR and practice management system selection assistance",
           "Workflow design and optimization",

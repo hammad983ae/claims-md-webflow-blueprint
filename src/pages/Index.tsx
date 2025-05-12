@@ -6,7 +6,8 @@ import CalendlyWidget from '@/components/CalendlyWidget';
 import EHRsList from '@/components/EHRsList';
 import { Button } from '@/components/ui/button';
 import { Check, FileText, Shield, Calendar, ArrowRight, BarChart3, Users, HeartPulse } from 'lucide-react';
-
+import CMP from '../Assets/Confident Medical Professional Outdoors.jpeg';
+import CPP from '../Assets/Confident Healthcare Professional in Modern Clinic.jpeg';
 const Index = () => {
   const services = [
     {
@@ -215,7 +216,7 @@ const Index = () => {
 
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1600" 
+                  src={CPP} 
                   alt="Healthcare team working together" 
                   className="w-full h-64 object-cover object-center"
                 />
@@ -265,7 +266,7 @@ const Index = () => {
             
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1600" 
+                src={CMP} 
                 alt="Medical billing technology" 
                 className="w-full h-80 object-cover object-center"
               />
@@ -298,7 +299,7 @@ const Index = () => {
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button variant="outline" className="text-white border-white hover:bg-white/10 transform hover:-translate-y-1 transition-all duration-300" size="lg" asChild>
+            <Button variant="outline" className="bg-gradient-to-r from-claimsOrange to-orange-600 border-white hover:bg-white/10 transform hover:-translate-y-1 transition-all duration-300" size="lg" asChild>
               <a href="/services">Explore Our Services</a>
             </Button>
           </div>

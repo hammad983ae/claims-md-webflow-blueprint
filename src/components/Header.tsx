@@ -29,7 +29,7 @@ const Header = () => {
     { name: 'Credentialing & Enrollment', path: '/services/credentialing-enrollment' },
     { name: 'New Practice Setup', path: '/services/new-practice-setup' },
     { name: 'Reputation Management', path: '/services/reputation-management' },
-    { name: 'Value Added Services', path: '/services/value-added-services' },
+    // { name: 'Value Added Services', path: '/services/value-added-services' },
     { name: 'Healthcare Digital Marketing', path: '/services/healthcare-digital-marketing' },
     
   ];
@@ -106,11 +106,12 @@ const Header = () => {
               </NavigationMenuList>
             </NavigationMenu>
             <Button 
-              className="bg-claimsBlue hover:bg-blue-800"
-              onClick={() => setQuoteModalOpen(true)}
-            >
-              Get a Quote
-            </Button>
+  className="bg-claimsBlue hover:bg-blue-800 rounded-full"
+  onClick={() => setQuoteModalOpen(true)}
+>
+  Get a Quote
+</Button>
+
           </nav>
 
           {/* Mobile Menu Button */}

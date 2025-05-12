@@ -77,7 +77,7 @@ const Blog = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 py-20">
+      <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">ClaimsMD Blog</h1>

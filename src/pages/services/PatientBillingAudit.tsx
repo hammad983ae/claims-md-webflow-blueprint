@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import SMD from '../../Assets/Smiling Male Doctor Portrait.jpeg';
 
 const PatientBillingAudit = () => {
   return (
@@ -8,6 +9,7 @@ const PatientBillingAudit = () => {
       <ServiceDetail
         title="Patient Billing Audit"
         description="Detailed review of patient billing processes to identify improvement opportunities and ensure compliance."
+        image={SMD}
         features={[
           "Patient statement analysis",
           "Payment plan evaluation",

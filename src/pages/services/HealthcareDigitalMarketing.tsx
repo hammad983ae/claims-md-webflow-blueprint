@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import HPP from '../../Assets/Healthcare Professional Portrait.jpeg';
 
 const HealthcareDigitalMarketing = () => {
   return (
@@ -8,6 +9,7 @@ const HealthcareDigitalMarketing = () => {
       <ServiceDetail
         title="Healthcare Digital Marketing"
         description="Specialized digital marketing strategies designed specifically for healthcare practices to attract new patients and grow your practice."
+        image= {HPP}
         features={[
           "Healthcare-specific SEO optimization",
           "HIPAA-compliant content marketing",

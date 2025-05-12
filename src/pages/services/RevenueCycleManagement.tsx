@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import DEP from '../../Assets/Doctor Engaging with Patient.jpeg';
 
 const RevenueCycleManagement = () => {
   return (
@@ -8,6 +9,7 @@ const RevenueCycleManagement = () => {
       <ServiceDetail
         title="Revenue Cycle Management"
         description="Comprehensive revenue cycle management to optimize financial performance and patient experience."
+        image= {DEP}
         features={[
           "End-to-end revenue cycle oversight",
           "Key performance indicator monitoring",

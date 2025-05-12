@@ -8,7 +8,7 @@ const Footer = () => {
     company: [
       { name: 'Why Claims MD', path: '/why-claims-md' },
       { name: 'Who We Are', path: '/about' },
-      { name: 'Message from CEO', path: '/ceo-message' },
+      { name: 'Message from CEO', path: '/message-from-ceo' },
     ],
     services: [
       { name: 'Medical Billing Audit', path: '/services/medical-billing-audit' },

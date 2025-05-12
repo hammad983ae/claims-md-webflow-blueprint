@@ -1,6 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
+import MMI from '../../Assets/Medical Monitor Interaction.jpeg';
 
 const MedicalBillingServices = () => {
   return (
@@ -8,7 +9,7 @@ const MedicalBillingServices = () => {
       <ServiceDetail
         title="Medical Billing Services"
         description="End-to-end medical billing solutions designed to maximize reimbursements and streamline your revenue cycle management."
-        image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
+        image= {MMI}
         features={[
           "Complete claims submission and processing",
           "Insurance eligibility verification",
