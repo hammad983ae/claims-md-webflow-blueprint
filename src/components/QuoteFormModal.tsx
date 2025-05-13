@@ -9,15 +9,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { Check, Send, User, Mail, Phone, MessageSquare } from "lucide-react";
+import { Check, Send, User, Mail, Phone, Building, Users, DollarSign, MessageSquare } from "lucide-react";
 
 // Create a form schema with validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  businessName: z.string().min(1, { message: "Please enter a valid business name" }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  businessName: z.string().min(1, {message:"Please enter a valid company name"}),
-  specialty: z.string().optional(),
+  monthlyBilling: z.string().optional(),
+  providers: z.string().optional(),
+  totalAR: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
@@ -38,11 +40,13 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
+      businessName: "",
       email: "",
       phone: "",
-      specialty: "",
+      monthlyBilling: "",
+      providers: "",
+      totalAR: "",
       message: "",
-      businessName:"",
     },
   });
 
@@ -73,7 +77,7 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[550px] p-6 overflow-hidden bg-white rounded-xl">
+      <DialogContent className="sm:max-w-[550px] p-6 overflow-auto max-h-[90vh] bg-white rounded-xl">
         <DialogHeader className="pb-4 border-b">
           <DialogTitle className="text-2xl font-bold text-claimsBlue">Request a Free Quote</DialogTitle>
           <DialogDescription className="text-gray-600">
@@ -95,13 +99,14 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
         ) : (
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 mt-4">
+              {/* Name and Business Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>Full Name <span className="text-red-500">*</span></FormLabel>
                       <FormControl>
                         <div className="relative">
                           <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -121,8 +126,8 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
                       <FormLabel>Business Name</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input placeholder="XYZ" type="text" className="pl-10" {...field} />
+                          <Building className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input placeholder="Your Practice Name" className="pl-10" {...field} />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -131,17 +136,18 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
                 />
               </div>
 
+              {/* Email and Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Emaik</FormLabel>
+                      <FormLabel>Email <span className="text-red-500">*</span></FormLabel>
                       <FormControl>
                         <div className="relative">
                           <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input placeholder="abc@company.comm" className="pl-10" {...field} />
+                          <Input placeholder="email@example.com" className="pl-10" {...field} />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -154,12 +160,11 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone</FormLabel>
+                      <FormLabel>Phone <span className="text-red-500">*</span></FormLabel>
                       <FormControl>
-                        
-                      <div className="relative">
+                        <div className="relative">
                           <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input placeholder="+1 (123) 456 780" className="pl-10" {...field} />
+                          <Input placeholder="+1 (123) 456 7890" className="pl-10" {...field} />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -168,12 +173,68 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
                 />
               </div>
               
+              {/* Monthly Billing and # of Providers */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <FormField
+                  control={form.control}
+                  name="monthlyBilling"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Monthly Billing</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <DollarSign className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input placeholder="Approximate amount" className="pl-10" {...field} />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="providers"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel># of Providers</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Users className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input placeholder="Number of providers" className="pl-10" {...field} />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              {/* Total AR */}
+              <FormField
+                control={form.control}
+                name="totalAR"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Total AR</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <DollarSign className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                        <Input placeholder="Total accounts receivable" className="pl-10" {...field} />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              {/* Message */}
               <FormField
                 control={form.control}
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>How Can We Help?</FormLabel>
+                    <FormLabel>Your Message <span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <div className="relative">
                         <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
