@@ -2,7 +2,9 @@ import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowRight, Check, Search 
+  ArrowRight, Check, Search,
+  Shield, FileSearch, Calendar, Hospital,
+  Stethoscope, Brain, Pill, Clock, Syringe
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getSpecialtyIcon } from '@/utils/specialtyIcons';

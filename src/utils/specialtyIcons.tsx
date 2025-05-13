@@ -1,8 +1,9 @@
+
 import React from 'react';
 import {
   Stethoscope, Heart, Brain, Clipboard, Hospital, Users, Microscope, 
   FileSearch, Calendar, Pill, Shield, Clock, User, Syringe, 
-  Bone, Flask, Eye, Ear, Monitor, Sun, Zap, 
+  Bone, Beaker, Eye, Ear, Monitor, Sun, Zap, 
   Table, Weight, Bed, Lightbulb, Bandage,
   Network, BedDouble, Dna, Waves, Star, Pen, Scan, 
   Briefcase, PencilRuler, Search, Thermometer, Hourglass, Smile
@@ -80,7 +81,7 @@ export const getSpecialtyIcon = (specialty: string, size = 32) => {
     'Dietetics & Nutrition': <Clipboard size={size} />,
     'DME (Durable Medical Equipment)': <Briefcase size={size} />,
     'Emergency Medicine': <Clipboard size={size} />,
-    'Endocrinology': <Flask size={size} />,
+    'Endocrinology': <Beaker size={size} />,
     'Genetics': <Dna size={size} />,
     'Geriatrics': <User size={size} />,
     'Hematology': <Clipboard size={size} />,
@@ -102,7 +103,7 @@ export const getSpecialtyIcon = (specialty: string, size = 32) => {
     'Physical Medicine & Rehabilitation (PM&R)': <Clipboard size={size} />,
     'Physical Therapy': <Clipboard size={size} />,
     'Podiatry': <Clipboard size={size} />,
-    'Reproductive Endocrinology': <Flask size={size} />,
+    'Reproductive Endocrinology': <Beaker size={size} />,
     'Rheumatology': <Bone size={size} />,
     'Sleep Medicine': <Bed size={size} />,
     'Social Work (Clinical Billing)': <Users size={size} />,
@@ -133,3 +134,4 @@ export const getSpecialtyIcon = (specialty: string, size = 32) => {
   // Return the mapped icon or a default if not found
   return iconMap[specialty] || <Stethoscope size={size} />;
 };
+
