@@ -4,10 +4,12 @@ import HeroBanner from '@/components/HeroBanner';
 import ServiceCard from '@/components/ServiceCard';
 import CalendlyWidget from '@/components/CalendlyWidget';
 import EHRsList from '@/components/EHRsList';
+import CounterSection from '@/components/CounterSection';
 import { Button } from '@/components/ui/button';
 import { Check, FileText, Shield, Calendar, ArrowRight, BarChart3, Users, HeartPulse } from 'lucide-react';
 import CMP from '../Assets/Confident Medical Professional Outdoors.jpeg';
 import CPP from '../Assets/Confident Healthcare Professional in Modern Clinic.jpeg';
+
 const Index = () => {
   const services = [
     {
@@ -68,6 +70,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Counter Section */}
+      <CounterSection />
 
       {/* EHRs We Work With Section */}
       <EHRsList />

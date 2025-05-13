@@ -2,11 +2,10 @@ import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowRight, Users, FileSearch, Calendar, Shield, Heart, 
-  Stethoscope, Hospital, Brain, Microscope, Pill, Syringe,
-  Clipboard, File, Search, Check, User, Clock
+  ArrowRight, Check, Search 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getSpecialtyIcon } from '@/utils/specialtyIcons';
 
 const Specialties = () => {
   const specialties = [
@@ -14,19 +13,16 @@ const Specialties = () => {
     {
       title: 'Primary Care',
       description: 'Specialized billing solutions for Family Medicine, Internal Medicine, and General Practice.',
-      icon: <Stethoscope size={32} />,
       features: ['Preventive care coding', 'Chronic care management billing', 'Value-based payment models']
     },
     {
       title: 'Family Medicine',
       description: 'Complete billing services for family practitioners covering patients of all ages.',
-      icon: <Users size={32} />,
       features: ['Annual wellness visit coding', 'Preventive screening claims', 'Chronic disease documentation']
     },
     {
       title: 'Internal Medicine',
       description: 'Expert billing for adult primary care and complex medical conditions.',
-      icon: <User size={32} />,
       features: ['Complex E/M code optimization', 'Chronic care management', 'Transitional care billing']
     },
     
@@ -34,19 +30,16 @@ const Specialties = () => {
     {
       title: 'Cardiology',
       description: 'Expert billing for diagnostic procedures, interventional cardiology, and cardiac rehabilitation.',
-      icon: <Heart size={32} />,
       features: ['Nuclear study billing', 'Cardiac catheterization coding', 'Device implant reimbursement']
     },
     {
       title: 'Interventional Cardiology',
       description: 'Specialized billing for cardiac interventions, stent placements, and complex procedures.',
-      icon: <Heart size={32} />,
       features: ['Catheterization lab billing', 'Coronary intervention coding', 'Device implantation reimbursement']
     },
     {
       title: 'Cardiothoracic Surgery',
       description: 'Comprehensive billing for complex cardiac and thoracic surgical procedures.',
-      icon: <Heart size={32} />,
       features: ['Cardiac surgery coding', 'Thoracic procedure billing', 'Global surgical package management']
     },
     
@@ -54,37 +47,31 @@ const Specialties = () => {
     {
       title: 'General Surgery',
       description: 'Detailed billing services for pre-operative, surgical, and post-operative care.',
-      icon: <Clipboard size={32} />,
       features: ['Surgical coding expertise', 'Global period management', 'Modifier usage optimization']
     },
     {
       title: 'Orthopedic Surgery',
       description: 'Comprehensive billing services for orthopedic surgeries, treatments, and rehabilitation.',
-      icon: <Clipboard size={32} />,
       features: ['Surgical procedure coding', "Worker's compensation expertise", 'DME billing']
     },
     {
       title: 'Neurosurgery',
       description: 'Specialized billing for complex brain, spine and nervous system surgeries.',
-      icon: <Brain size={32} />,
       features: ['Complex surgical coding', 'Neurosurgical procedure billing', 'Hospital/surgical center billing']
     },
     {
       title: 'Plastic & Reconstructive Surgery',
       description: 'Expert billing distinguishing between cosmetic and medically necessary procedures.',
-      icon: <Clipboard size={32} />,
       features: ['Medical necessity documentation', 'Reconstructive vs. cosmetic differentiation', 'Prior authorization management']
     },
     {
       title: 'Colorectal Surgery',
       description: 'Specialized billing for colorectal disorders, procedures and screenings.',
-      icon: <Clipboard size={32} />,
       features: ['Procedure coding expertise', 'Diagnostic vs. therapeutic coding', 'Global surgical package management']
     },
     {
       title: 'Thoracic Surgery',
       description: 'Comprehensive billing for chest, lung and esophageal surgeries.',
-      icon: <Clipboard size={32} />,
       features: ['Complex surgical coding', 'ICU/critical care billing', 'Procedure documentation optimization']
     },
     
@@ -92,25 +79,21 @@ const Specialties = () => {
     {
       title: 'Radiology',
       description: 'Expert billing for diagnostic imaging, interventional procedures, and teleradiology.',
-      icon: <FileSearch size={32} />,
       features: ['Modality-specific coding', '3D rendering services', 'Technical/professional component billing']
     },
     {
       title: 'Pathology',
       description: 'Precise billing for laboratory, cytology, and anatomic pathology services.',
-      icon: <Microscope size={32} />,
       features: ['Specimen collection billing', 'Test interpretation coding', 'Molecular diagnostics billing']
     },
     {
       title: 'Laboratory Medicine',
       description: 'Comprehensive billing for clinical laboratory testing and diagnostic services.',
-      icon: <Microscope size={32} />,
       features: ['Panel vs. individual test coding', 'Medical necessity documentation', 'Molecular/genetic test billing']
     },
     {
       title: 'Nuclear Medicine',
       description: 'Specialized billing for nuclear imaging studies and therapeutic procedures.',
-      icon: <FileSearch size={32} />,
       features: ['Radiopharmaceutical billing', 'Study protocol documentation', 'Technical/professional components']
     },
     
@@ -118,19 +101,16 @@ const Specialties = () => {
     {
       title: 'Mental Health',
       description: 'Dedicated billing solutions for psychiatry, psychology, and behavioral health services.',
-      icon: <Brain size={32} />,
       features: ['Telehealth session billing', 'Group therapy coding', 'Insurance authorization management']
     },
     {
       title: 'Psychiatry',
       description: 'Specialized billing for psychiatric evaluations, medication management, and procedures.',
-      icon: <Brain size={32} />,
       features: ['E/M code optimization', 'Testing and assessment billing', 'Telehealth service coding']
     },
     {
       title: 'Behavioral Health',
       description: 'Comprehensive billing for therapy services, psychological testing, and behavioral interventions.',
-      icon: <Brain size={32} />,
       features: ['Group vs. individual therapy coding', 'Assessment billing', 'Authorization management']
     },
     
@@ -138,7 +118,6 @@ const Specialties = () => {
     {
       title: 'Neurology',
       description: 'Specialized billing for neurological diagnostics, procedures, and ongoing care.',
-      icon: <Brain size={32} />,
       features: ['EEG/EMG billing', 'Complex neurological procedure coding', 'Stroke protocol billing']
     },
     
@@ -146,43 +125,36 @@ const Specialties = () => {
     {
       title: 'Dermatology',
       description: 'Expert billing for skin conditions, procedures, and cosmetic vs. medical services.',
-      icon: <Clipboard size={32} />,
       features: ['Procedure coding expertise', 'Cosmetic vs. medical determination', 'Pathology coordination']
     },
     {
       title: 'Gastroenterology',
       description: 'Comprehensive billing for digestive health procedures, endoscopies, and treatments.',
-      icon: <Clipboard size={32} />,
       features: ['Endoscopic procedure coding', 'Facility and professional billing', 'Anesthesia coordination']
     },
     {
       title: 'Pulmonology',
       description: 'Specialized billing for respiratory diagnostics, treatments, and procedures.',
-      icon: <Clipboard size={32} />,
       features: ['Pulmonary function test billing', 'Sleep study coding', 'Respiratory therapy reimbursement']
     },
     {
       title: 'Oncology',
       description: 'Expert billing for cancer treatments, chemotherapy, and radiation therapy.',
-      icon: <Clipboard size={32} />,
       features: ['Chemotherapy administration coding', 'Treatment planning billing', 'Complex medication reimbursement']
     },
     {
       title: 'Pediatrics',
       description: 'Dedicated billing for well-child visits, developmental assessments, and pediatric care.',
-      icon: <Users size={32} />,
       features: ['Immunization billing', 'Growth/development screening coding', 'Preventive service optimization']
     },
     {
       title: 'Obstetrics & Gynecology',
       description: 'Comprehensive billing for women\'s health, pregnancy care, and gynecological procedures.',
-      icon: <Calendar size={32} />,
       features: ['Global OB package billing', 'GYN procedure coding', 'Pregnancy complication billing']
     },
     {
       title: 'Urology',
       description: 'Specialized billing for urological diagnostics, treatments, and surgical procedures.',
-      icon: <Clipboard size={32} />,
       features: ['Procedure coding expertise', 'Urodynamic study billing', 'Oncology treatment coordination']
     },
   ];
@@ -254,7 +226,7 @@ const Specialties = () => {
                 <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-claimsBlue to-blue-400"></div>
                 <CardHeader className="pb-2">
                   <div className="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-claimsBlue/10 to-blue-500/10 flex items-center justify-center text-claimsBlue group-hover:scale-110 transition-transform duration-300">
-                    {specialty.icon}
+                    {getSpecialtyIcon(specialty.title)}
                   </div>
                   <CardTitle className="text-xl font-bold text-claimsBlue group-hover:text-indigo-700 transition-colors">{specialty.title}</CardTitle>
                   <CardDescription className="text-gray-600 mt-2">{specialty.description}</CardDescription>
@@ -303,8 +275,11 @@ const Specialties = () => {
             {allSpecialties.map((specialty, index) => (
               <div 
                 key={index} 
-                className="bg-white p-3 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow hover:border-claimsBlue/20 text-center flex items-center justify-center"
+                className="bg-white p-4 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow hover:border-claimsBlue/20 text-center flex flex-col items-center justify-center gap-2"
               >
+                <div className="text-claimsBlue">
+                  {getSpecialtyIcon(specialty, 24)}
+                </div>
                 <Link to="/contact" className="text-gray-700 hover:text-claimsBlue transition-colors text-sm">
                   {specialty}
                 </Link>
