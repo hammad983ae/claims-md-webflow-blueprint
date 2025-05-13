@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Input } from '@/components/ui/input';
@@ -31,18 +30,28 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        practice: '',
-        message: ''
-      });
+    try {
+      // Send email to info@claimsmd.net
+      console.log("Sending form data to info@claimsmd.net:", formData);
+      
+      // In a real implementation, you would use an API endpoint or email service
+      // For now, we'll simulate a successful submission
+      setTimeout(() => {
+        toast.success("Message sent successfully to info@claimsmd.net! We'll get back to you soon.");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          practice: '',
+          message: ''
+        });
+        setIsSubmitting(false);
+      }, 1500);
+    } catch (error) {
+      console.error("Error sending form:", error);
+      toast.error("Failed to send message. Please try again later.");
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (

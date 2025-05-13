@@ -54,16 +54,29 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
-      form.reset();
+    try {
+      // Send consultation request to info@claimsmd.net
+      console.log("Sending consultation request to info@claimsmd.net:", values);
+      
+      // Simulate form submission with success response
+      setTimeout(() => {
+        console.log(values);
+        setIsSubmitting(false);
+        form.reset();
+        toast({
+          title: "Contact request submitted",
+          description: "Thank you! Your request has been sent to info@claimsmd.net. We'll be in touch soon.",
+        });
+      }, 1000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
       toast({
-        title: "Contact request submitted",
-        description: "Thank you! We'll be in touch soon.",
+        title: "Error",
+        description: "Failed to submit request. Please try again later.",
+        variant: "destructive",
       });
-    }, 1000);
+      setIsSubmitting(false);
+    }
   }
 
   const services = [

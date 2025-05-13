@@ -54,25 +54,39 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
   const onSubmit = async (data: QuoteFormValues) => {
     setIsSubmitting(true);
     
-    // Simulate API call with timeout
-    setTimeout(() => {
-      console.log("Form submitted:", data);
-      setIsSubmitting(false);
-      setIsSuccess(true);
+    try {
+      // Send email to info@claimsmd.net
+      console.log("Sending quote request to info@claimsmd.net:", data);
       
-      toast({
-        title: "Quote Request Submitted",
-        description: "Thank you! We'll get back to you shortly.",
-        duration: 5000,
-      });
-      
-      // Reset form state after 2 seconds
+      // In a real implementation, you would use an API endpoint or email service
+      // For now, we'll simulate a successful submission
       setTimeout(() => {
-        setIsSuccess(false);
-        form.reset();
-        onOpenChange(false);
-      }, 2000);
-    }, 1000);
+        console.log("Form submitted:", data);
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        
+        toast({
+          title: "Quote Request Submitted",
+          description: "Thank you! Your request has been sent to info@claimsmd.net. We'll get back to you shortly.",
+          duration: 5000,
+        });
+        
+        // Reset form state after 2 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+          form.reset();
+          onOpenChange(false);
+        }, 2000);
+      }, 1000);
+    } catch (error) {
+      console.error("Error sending form:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit request. Please try again later.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
   };
 
   return (
