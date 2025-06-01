@@ -1,6 +1,7 @@
 
 import { motion } from '@/components/ui/motion';
 import { useState, useEffect } from 'react';
+import { useRef } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -62,6 +63,19 @@ const EHRsList = () => {
     { name: "ICANotes", logo: "/lovable-uploads/2959b0c8-5e4e-4840-b6a3-f5d9c45cb0fe.png" },
     { name: "RXNT", logo: "/lovable-uploads/5d95e10d-4aee-4849-8304-3c28748ee8d7.png" },
   ];
+  const carouselRef = useRef<any>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current && carouselRef.current.next) {
+        carouselRef.current.next();
+      }
+    }, 3000); // Change slide every 3 seconds
+  
+    return () => clearInterval(interval);
+  }, []);
+  
+
 
   return (
     <section id="ehrs-section" className="py-14 bg-gray-50">
@@ -77,6 +91,8 @@ const EHRsList = () => {
             opts={{
               align: "start",
               loop: true,
+              // autoplay: true,  
+              // interval: 3000, 
             }}
             className="mx-auto"
           >

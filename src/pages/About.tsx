@@ -132,45 +132,8 @@ optimize your revenue cycle, reduce administrative burdens, and ensure complianc
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-claimsBlue mb-12">Our Journey</h2>
-          
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-claimsBlue/20 hidden md:block"></div>
-            
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <div key={index} className="relative">
-                  {/* Timeline dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-claimsBlue hidden md:block"></div>
-                  
-                  <div className={`md:flex items-center ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}>
-                    <div className="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
-                      {index % 2 === 0 && (
-                        <div className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow border-l-4 border-claimsBlue md:ml-auto md:mr-6">
-                          <h3 className="font-bold text-xl text-claimsBlue">{item.year}: {item.title}</h3>
-                          <p className="text-gray-700 mt-2">{item.description}</p>
-                        </div>
-                      )}
-                    </div>
-                    <div className="md:w-1/2 md:pl-12">
-                      {index % 2 !== 0 && (
-                        <div className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow border-l-4 border-claimsBlue md:mr-auto md:ml-6">
-                          <h3 className="font-bold text-xl text-claimsBlue">{item.year}: {item.title}</h3>
-                          <p className="text-gray-700 mt-2">{item.description}</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+  
+
 
       {/* Core Values Section */}
       <section className="py-16">

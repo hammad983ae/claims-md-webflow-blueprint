@@ -14,7 +14,8 @@ const ServiceCard = ({ title, description, icon, link }: ServiceCardProps) => {
   return (
     <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group h-full flex flex-col justify-between hover:translate-y-[-5px]">
       {/* Accent color line with gradient using brand colors */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#2058a8] to-[#ec7c04] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-[#071078] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+
       
       {/* Icon with gradient background */}
       <div className="mb-4 relative">
