@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -67,7 +68,7 @@ const Header = () => {
       <div className="flex items-center justify-center gap-10 py-2">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/09c5b379-6ce8-491b-a1f7-0a3750cb2ed4.png" 
+            src="/lovable-uploads/6d753958-b975-4520-95f7-7a8f853aaf12.png" 
             alt="ClaimsMD Logo" 
             className="h-10 md:h-14" 
           />
