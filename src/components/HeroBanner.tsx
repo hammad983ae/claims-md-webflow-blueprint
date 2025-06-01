@@ -103,13 +103,30 @@ const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
 
   return (
     <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-28">
-      {/* Background Image with Overlay */}
+      {/* Background Images Carousel */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://www.lummi.ai/api/render/image/831cbb27-173b-4ad4-8ad9-5a23982b4c44?token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjgzMWNiYjI3LTE3M2ItNGFkNC04YWQ5LTVhMjM5ODJiNGM0NCIsImRvd25sb2FkU2l6ZSI6Im1lZGl1bSIsInJlbmRlclNwZWNzIjp7ImVmZmVjdHMiOnsicmVmcmFtZSI6e319fSwic2hvdWxkQXV0b0Rvd25sb2FkIjpmYWxzZSwianRpIjoiMFZ4TXhSel9uMk1GYURQRFdTbUpHIiwiaWF0IjoxNzQ3MDc4Mzc2LCJleHAiOjE3NDcwNzg0MzZ9.SaOyJMjATT2RmY-4BkwodscghmKIa5oQ1Uo6E_mbWAQ" 
-          alt="Medical billing background" 
-          className="w-full h-full object-cover object-center"
-        />
+        <div className="relative w-full h-full">
+          {/* Image 1 - Doctor with patient consultation */}
+          <img 
+            src="/lovable-uploads/0800fa48-5182-461a-a824-e80043d5b8d2.png" 
+            alt="Healthcare professional consultation" 
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-70 animate-fade-in"
+          />
+          {/* Image 2 - Healthcare professional in scrubs */}
+          <img 
+            src="/lovable-uploads/2dbb8cf1-4b9c-47c6-83bd-0840aa804c33.png" 
+            alt="Healthcare professional in medical scrubs" 
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-0 animate-fade-in animation-delay-[5s]"
+            style={{animationIterationCount: "infinite", animationDuration: "15s"}}
+          />
+          {/* Image 3 - Doctor with stethoscope */}
+          <img 
+            src="/lovable-uploads/f1f473f6-7c7b-4cf0-9777-efcd7b299a75.png" 
+            alt="Doctor with stethoscope in hospital" 
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-0 animate-fade-in animation-delay-[10s]"
+            style={{animationIterationCount: "infinite", animationDuration: "15s"}}
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-claimsBlue/90 to-indigo-900/90"></div>
       </div>
       

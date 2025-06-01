@@ -64,18 +64,12 @@ const Index = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-          <Button 
-  className="btn-primary hover:-translate-y-1 transition-transform duration-300 shadow-lg hover:shadow-xl" 
-  asChild
-  style={{
-    '--tw-bg-opacity': 1,
-  }}
-  onMouseEnter={e => e.currentTarget.style.backgroundColor = '#f29846'}
-  onMouseLeave={e => e.currentTarget.style.backgroundColor = ''}
->
-  <a href="/services">View All Services</a>
-</Button>
-
+            <Button 
+              className="btn-primary hover:-translate-y-1 transition-transform duration-300 shadow-lg hover:shadow-xl hover:bg-claimsOrange" 
+              asChild
+            >
+              <a href="/services">View All Services</a>
+            </Button>
           </div>
         </div>
       </section>

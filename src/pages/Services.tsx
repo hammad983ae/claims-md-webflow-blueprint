@@ -66,9 +66,21 @@ const Services = () => {
   ];
 
   return (
-    <Layout>
+    <Layout metaPage="services">
       {/* Hero Section */}
       <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full">
+            <img 
+              src="/lovable-uploads/f1f473f6-7c7b-4cf0-9777-efcd7b299a75.png" 
+              alt="Healthcare professional" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-claimsBlue/90 to-indigo-900/90"></div>
+          </div>
+        </div>
+        
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h1>
