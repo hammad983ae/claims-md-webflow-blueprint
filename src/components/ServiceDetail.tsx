@@ -153,10 +153,11 @@ const ServiceDetail = ({
             <div className="md:col-span-8 space-y-12">
               {/* Tabs Section */}
               <Tabs defaultValue="overview" className="w-full">
-                <TabsList className="w-full grid grid-cols-3 mb-8">
+                <TabsList className="w-full grid grid-cols-4 mb-8">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="process">Our Process</TabsTrigger>
                   <TabsTrigger value="benefits">Key Benefits</TabsTrigger>
+                  <TabsTrigger value="audience">Who Benefits</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="overview" className="space-y-8">
@@ -271,27 +272,62 @@ const ServiceDetail = ({
                     </div>
                   </div>
                 </TabsContent>
-              </Tabs>
 
-              {/* Target Audience */}
-              {targetAudience && targetAudience.length > 0 && (
-                <div className="bg-gray-50 p-8 rounded-lg">
-                  <h2 className="text-2xl font-bold mb-6 text-gray-800">Who Can Benefit</h2>
-                  <p className="text-gray-700 mb-6">
-                    Our {title.toLowerCase()} services are ideal for:
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {targetAudience.map((audience, index) => (
-                      <div key={index} className="flex items-center bg-white p-4 rounded-md shadow-sm">
-                        <div className="mr-3 text-claimsOrange">
-                          <CircleCheck size={18} />
+                <TabsContent value="audience" className="space-y-8">
+                  <div>
+                    <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-gray-200 pb-3">Who Can Benefit</h2>
+                    {targetAudience && targetAudience.length > 0 ? (
+                      <div>
+                        <p className="text-gray-700 mb-6">
+                          Our {title.toLowerCase()} services are ideal for:
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {targetAudience.map((audience, index) => (
+                            <div key={index} className="flex items-center bg-white p-4 rounded-md shadow-sm border-l-4 border-claimsOrange">
+                              <div className="mr-3 text-claimsOrange">
+                                <CircleCheck size={18} />
+                              </div>
+                              <span className="text-gray-700">{audience}</span>
+                            </div>
+                          ))}
                         </div>
-                        <span className="text-gray-700">{audience}</span>
                       </div>
-                    ))}
+                    ) : (
+                      <div>
+                        <p className="text-gray-700 mb-6">
+                          Our {title.toLowerCase()} services are ideal for:
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div className="flex items-center bg-white p-4 rounded-md shadow-sm border-l-4 border-claimsOrange">
+                            <div className="mr-3 text-claimsOrange">
+                              <CircleCheck size={18} />
+                            </div>
+                            <span className="text-gray-700">Small practices looking to streamline billing processes</span>
+                          </div>
+                          <div className="flex items-center bg-white p-4 rounded-md shadow-sm border-l-4 border-claimsOrange">
+                            <div className="mr-3 text-claimsOrange">
+                              <CircleCheck size={18} />
+                            </div>
+                            <span className="text-gray-700">Multi-specialty clinics needing comprehensive solutions</span>
+                          </div>
+                          <div className="flex items-center bg-white p-4 rounded-md shadow-sm border-l-4 border-claimsOrange">
+                            <div className="mr-3 text-claimsOrange">
+                              <CircleCheck size={18} />
+                            </div>
+                            <span className="text-gray-700">Large healthcare organizations seeking efficiency</span>
+                          </div>
+                          <div className="flex items-center bg-white p-4 rounded-md shadow-sm border-l-4 border-claimsOrange">
+                            <div className="mr-3 text-claimsOrange">
+                              <CircleCheck size={18} />
+                            </div>
+                            <span className="text-gray-700">New practices establishing best practices</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              )}
+                </TabsContent>
+              </Tabs>
 
               {/* FAQs Section */}
               {faqs.length > 0 && (
