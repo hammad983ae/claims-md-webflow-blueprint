@@ -1,42 +1,102 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-import CHP from '../../Assets/Confident Healthcare Professional in Modern Clinic.jpeg';
+import Confifent from '../../Assets/Confident Dentist.jpeg';
 
 const ARManagementServices = () => {
+  const arSteps = [
+    {
+      title: "A/R Analysis",
+      description: "We begin by conducting a comprehensive analysis of your accounts receivable to identify aging claims (30, 60, 90, and 120+ days), common reasons for delays (e.g., coding errors, missing information, payer issues), and trends and patterns in outstanding claims."
+    },
+    {
+      title: "Claim Resolution",
+      description: "Our team of certified billing experts works diligently to resolve outstanding claims by correcting errors and resubmitting claims, following up with payers to expedite payments, and filing appeals with supporting documentation when necessary."
+    },
+    {
+      title: "Proactive Prevention",
+      description: "We don't just resolve outstanding claims – we help prevent them. Our prevention strategies include implementing process improvements to reduce errors, providing staff training on coding and billing best practices, and conducting regular audits to identify potential issues."
+    },
+    {
+      title: "Detailed Reporting",
+      description: "We provide comprehensive reports that include aging A/R breakdown (30, 60, 90, and 120+ days), resolved claims and recovered revenue, and recommendations for reducing future A/R issues."
+    },
+    {
+      title: "Ongoing Support",
+      description: "Our team is always available to address your A/R management needs and provide ongoing support to ensure long-term success."
+    }
+  ];
+
+  const arBenefits = [
+    "Improve cash flow through timely resolution of outstanding claims ensuring a steady stream of revenue",
+    "Reduce administrative burden by handling time-consuming and resource-intensive A/R management tasks",
+    "Minimize revenue loss by preventing unresolved claims from becoming write-offs and lost revenue",
+    "Enhance compliance by helping you stay compliant with payer requirements and regulations",
+    "Advanced technology using state-of-the-art A/R management tools to track, analyze, and resolve outstanding claims",
+    "Expert team including certified medical coders, billing specialists, and A/R management experts with years of healthcare industry experience"
+  ];
+
+  const targetAudience = [
+    "Small practices looking to recover lost revenue and reduce administrative burdens",
+    "Multi-specialty clinics needing to address A/R issues across multiple specialties",
+    "Large healthcare organizations seeking to streamline A/R management for high claim volumes",
+    "Practices with high A/R balances wanting to identify and resolve the root causes of outstanding claims",
+    "New practices looking to establish best practices to minimize A/R issues from the start"
+  ];
+
+  const arFAQs = [
+    {
+      question: "How much revenue can I recover with A/R management services?",
+      answer: "The amount of recoverable revenue depends on your practice's aging A/R and the root causes of outstanding claims. On average, practices recover 5-10% of their total A/R through effective management."
+    },
+    {
+      question: "How long does it take to resolve outstanding claims?",
+      answer: "The timeline for resolving outstanding claims varies depending on the complexity of the issue. Most claims are resolved within 30-60 days."
+    },
+    {
+      question: "Can you help prevent future A/R issues?",
+      answer: "Yes, our proactive prevention strategies are designed to reduce your aging A/R and prevent future issues."
+    },
+    {
+      question: "Do you work with all payers?",
+      answer: "Yes, we have experience working with Medicare, Medicaid, and all major private insurance payers."
+    },
+    {
+      question: "How do I get started with ClaimsMD's A/R management services?",
+      answer: "Simply contact us to schedule a free consultation. We'll analyze your current A/R and develop a customized plan to meet your needs."
+    },
+    {
+      question: "What is your approach to aging accounts?",
+      answer: "We prioritize accounts based on age, amount, and probability of collection, focusing first on high-value claims that are 30-60 days old to maximize recovery potential."
+    },
+    {
+      question: "How do you measure success in A/R management?",
+      answer: "We track key metrics including days in A/R, collection rate, aging bucket percentages, and cash flow improvement to measure success and provide transparent reporting."
+    }
+  ];
+
   return (
-    <Layout>
+    <Layout metaPage="services">
       <ServiceDetail
         title="A/R Management Services"
-        description="Specialized accounts receivable management services focused on resolving aging accounts and improving cash flow."
-         image= {CHP}
+        subtitle="Optimize Your Cash Flow and Reduce Outstanding Claims"
+        description="In the complex world of medical billing, managing accounts receivable (A/R) is one of the most critical yet challenging aspects of maintaining a healthy revenue cycle. Unresolved A/R can lead to cash flow disruptions, increased administrative burdens, and significant revenue loss. At ClaimsMD, we specialize in Accounts Receivable Management Services designed to help you recover outstanding payments, reduce aging A/R, and improve your practice's financial health. With our proactive approach and advanced technology, we ensure your claims are resolved quickly and your cash flow remains steady."
+        image={Confifent}
         features={[
-          "Aging A/R analysis and work-down",
-          "Targeted intervention for high-value claims",
-          "Payer-specific follow-up strategies",
-          "Recovery of old or written-off balances",
-          "Pattern analysis for denial prevention",
-          "Staff education on A/R best practices",
-          "Cash acceleration programs"
+          "Comprehensive aging account analysis and prioritization",
+          "Proactive follow-up on unpaid claims with systematic tracking",
+          "Payer-specific collection strategies tailored to each insurer",
+          "Account reconciliation and detailed financial reporting",
+          "Cash flow optimization and payment acceleration",
+          "Patient payment plan management and coordination",
+          "Small balance resolution and efficient cleanup processes",
+          "Advanced A/R tracking and management technology",
+          "Regular audits to identify and prevent future A/R issues"
         ]}
-        benefits={[
-          "Significant reduction in days in A/R",
-          "Recovery of previously uncollected revenue",
-          "Improved cash flow and financial stability",
-          "Enhanced staff efficiency in collections",
-          "Greater visibility into A/R performance",
-          "Systematic approach to preventing future backlogs"
-        ]}
-        faqs={[
-          {
-            question: "Can you help with a backlog of aging claims?",
-            answer: "Yes, we specialize in helping practices address backlogs of aging claims through targeted interventions and specialized follow-up strategies."
-          },
-          {
-            question: "How quickly can we expect to see results?",
-            answer: "Most clients see initial improvements within 30-45 days, with significant reduction in aging A/R within 90 days of implementation."
-          }
-        ]}
+        benefits={arBenefits}
+        steps={arSteps}
+        targetAudience={targetAudience}
+        faqs={arFAQs}
       />
     </Layout>
   );
