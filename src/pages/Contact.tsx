@@ -1,4 +1,3 @@
-
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,18 +36,30 @@ const Contact = () => {
   return (
     <Layout metaPage="contactUs">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-claimsBlue to-blue-800 text-white py-20">
-        <div className="container-custom">
+      <section className="relative bg-gradient-to-br from-claimsBlue via-blue-700 to-blue-900 text-white pt-24 pb-16 overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div 
+            className="w-full h-full" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }}
+          />
+        </div>
+
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              className="space-y-8"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading">
-                Contact ClaimsMD
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-heading">
+                Contact
+                <span className="block text-claimsOrange">ClaimsMD</span>
               </h1>
-              <p className="text-xl text-blue-100 mb-8">
+              <p className="text-xl text-blue-100 leading-relaxed">
                 We're here to help you optimize your medical billing and revenue cycle management. Get in touch with our expert team today.
               </p>
               <div className="space-y-4">
@@ -65,6 +76,17 @@ const Contact = () => {
                   <span className="text-lg">Personalized Solutions</span>
                 </div>
               </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="bg-claimsOrange hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  Schedule Free Consultation
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-claimsOrange text-claimsOrange hover:bg-claimsOrange hover:text-white font-semibold px-8 py-4 rounded-full transition-all duration-300"
+                >
+                  Call Now
+                </Button>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -72,12 +94,25 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Young female healthcare professional"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-claimsBlue/20 to-transparent rounded-2xl"></div>
+              <div className="relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  alt="Young female healthcare professional"
+                  className="rounded-2xl shadow-2xl w-full h-auto max-w-lg mx-auto"
+                />
+                {/* Floating Contact Cards */}
+                <div className="absolute -top-4 -left-4 bg-white text-claimsBlue rounded-xl p-4 shadow-lg">
+                  <div className="text-sm font-bold">24/7</div>
+                  <div className="text-xs">Support</div>
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-claimsOrange text-white rounded-xl p-4 shadow-lg">
+                  <div className="text-sm font-bold">Free</div>
+                  <div className="text-xs">Consultation</div>
+                </div>
+              </div>
+              
+              {/* Background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-claimsOrange/20 to-blue-500/20 rounded-2xl blur-3xl transform scale-110"></div>
             </motion.div>
           </div>
         </div>
