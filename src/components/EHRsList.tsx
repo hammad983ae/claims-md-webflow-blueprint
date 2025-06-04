@@ -8,6 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 interface EHRProps {
@@ -17,6 +18,7 @@ interface EHRProps {
 
 const EHRsList = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [api, setApi] = useState<CarouselApi>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,6 +37,17 @@ const EHRsList = () => {
       if (section) observer.unobserve(section);
     };
   }, []);
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 3000); // Auto-scroll every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [api]);
 
   const ehrs: EHRProps[] = [
     { name: "Epic", logo: "/lovable-uploads/546bcc39-9c9f-41e0-bb30-958d93ad123e.png" },
@@ -63,19 +76,6 @@ const EHRsList = () => {
     { name: "ICANotes", logo: "/lovable-uploads/2959b0c8-5e4e-4840-b6a3-f5d9c45cb0fe.png" },
     { name: "RXNT", logo: "/lovable-uploads/5d95e10d-4aee-4849-8304-3c28748ee8d7.png" },
   ];
-  const carouselRef = useRef<any>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselRef.current && carouselRef.current.next) {
-        carouselRef.current.next();
-      }
-    }, 3000); // Change slide every 3 seconds
-  
-    return () => clearInterval(interval);
-  }, []);
-  
-
 
   return (
     <section id="ehrs-section" className="py-14 bg-gray-50">
@@ -88,11 +88,10 @@ const EHRsList = () => {
         
         <div className="relative px-10 mx-auto max-w-5xl">
           <Carousel
+            setApi={setApi}
             opts={{
               align: "start",
               loop: true,
-              // autoplay: true,  
-              // interval: 3000, 
             }}
             className="mx-auto"
           >
