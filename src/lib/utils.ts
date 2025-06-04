@@ -7,22 +7,31 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const sendFormToEmail = async (formData: Record<string, any>) => {
-  // This is a placeholder function that would be implemented with your preferred email service
-  // like EmailJS, SendGrid, a custom API endpoint, etc.
+  console.log(`Sending form data to info@claimsmd.com:`, formData);
   
-  console.log(`Sending form data to info@claimsmd.net:`, formData);
-  
-  // For now, we're just returning a promise that resolves after a delay
-  // In a real implementation, this would make an API call to your email service
-  return new Promise<void>((resolve, reject) => {
-    try {
-      // Simulate API call
-      setTimeout(() => {
-        resolve();
-      }, 1000);
-    } catch (error) {
-      reject(error);
-    }
-  });
+  try {
+    // Create email content from form data
+    const emailContent = Object.entries(formData)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join('\n');
+    
+    // For now, we're simulating the email send
+    // In production, this would integrate with EmailJS, SendGrid, or your backend API
+    const emailData = {
+      to: 'info@claimsmd.com',
+      subject: `New ${formData.formType || 'Contact'} Form Submission`,
+      message: emailContent,
+      timestamp: new Date().toISOString()
+    };
+    
+    console.log('Email data prepared:', emailData);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    return emailData;
+  } catch (error) {
+    console.error('Error preparing email:', error);
+    throw error;
+  }
 };
-

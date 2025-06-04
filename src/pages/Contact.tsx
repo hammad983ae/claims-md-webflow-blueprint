@@ -1,11 +1,82 @@
+
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { motion } from '@/components/ui/motion';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { sendFormToEmail } from '@/lib/utils';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    practiceName: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await sendFormToEmail({
+        ...formData,
+        formType: 'Contact Page Form',
+        timestamp: new Date().toISOString(),
+        source: 'Contact Page'
+      });
+
+      toast({
+        title: "Message Sent Successfully",
+        description: "Thank you for contacting us! We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        practiceName: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: Phone,
@@ -209,7 +280,7 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-white p-8 rounded-2xl shadow-xl"
             >
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -217,6 +288,9 @@ const Contact = () => {
                     </label>
                     <Input 
                       type="text" 
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       required 
                       className="w-full"
                       placeholder="Enter your first name"
@@ -228,6 +302,9 @@ const Contact = () => {
                     </label>
                     <Input 
                       type="text" 
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       required 
                       className="w-full"
                       placeholder="Enter your last name"
@@ -241,6 +318,9 @@ const Contact = () => {
                   </label>
                   <Input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required 
                     className="w-full"
                     placeholder="Enter your email address"
@@ -253,6 +333,9 @@ const Contact = () => {
                   </label>
                   <Input 
                     type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     required 
                     className="w-full"
                     placeholder="Enter your phone number"
@@ -265,6 +348,9 @@ const Contact = () => {
                   </label>
                   <Input 
                     type="text" 
+                    name="practiceName"
+                    value={formData.practiceName}
+                    onChange={handleInputChange}
                     className="w-full"
                     placeholder="Enter your practice name"
                   />
@@ -275,6 +361,9 @@ const Contact = () => {
                     How can we help you? *
                   </label>
                   <Textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     required 
                     className="w-full h-32"
                     placeholder="Tell us about your practice and billing needs..."
@@ -283,9 +372,20 @@ const Contact = () => {
 
                 <Button 
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-claimsBlue hover:bg-blue-800 text-white py-3 text-lg font-semibold"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <span className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </motion.div>

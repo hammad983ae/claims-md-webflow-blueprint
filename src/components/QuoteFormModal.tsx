@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Check, Send, User, Mail, Phone, Building, Users, DollarSign, MessageSquare } from "lucide-react";
+import { sendFormToEmail } from "@/lib/utils";
 
 // Create a form schema with validation
 const formSchema = z.object({
@@ -55,29 +56,28 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
     setIsSubmitting(true);
     
     try {
-      // Send email to info@claimsmd.net
-      console.log("Sending quote request to info@claimsmd.net:", data);
+      await sendFormToEmail({
+        ...data,
+        formType: 'Quote Request Form',
+        timestamp: new Date().toISOString(),
+        source: 'Quote Form Modal'
+      });
       
-      // In a real implementation, you would use an API endpoint or email service
-      // For now, we'll simulate a successful submission
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      
+      toast({
+        title: "Quote Request Submitted",
+        description: "Thank you! Your request has been sent to info@claimsmd.com. We'll get back to you shortly.",
+        duration: 5000,
+      });
+      
+      // Reset form state after 2 seconds
       setTimeout(() => {
-        console.log("Form submitted:", data);
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        
-        toast({
-          title: "Quote Request Submitted",
-          description: "Thank you! Your request has been sent to info@claimsmd.net. We'll get back to you shortly.",
-          duration: 5000,
-        });
-        
-        // Reset form state after 2 seconds
-        setTimeout(() => {
-          setIsSuccess(false);
-          form.reset();
-          onOpenChange(false);
-        }, 2000);
-      }, 1000);
+        setIsSuccess(false);
+        form.reset();
+        onOpenChange(false);
+      }, 2000);
     } catch (error) {
       console.error("Error sending form:", error);
       toast({
