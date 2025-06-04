@@ -1,367 +1,109 @@
 
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight, Star, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
-import { Input } from '@/components/ui/input';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import QuoteFormModal from './QuoteFormModal';
 
-interface HeroBannerProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  ctaLink: string;
-}
-
-const formSchema = z.object({
-  service: z.string({
-    required_error: "Please select a service",
-  }),
-  provider: z.string({
-    required_error: "Please select a provider",
-  }),
-  fullName: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  phoneNumber: z.string().min(10, { message: "Please enter a valid phone number" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-});
-
-const HeroBanner = ({ title, subtitle, ctaText, ctaLink }: HeroBannerProps) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      service: "",
-      provider: "",
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    
-    try {
-      // Send consultation request to info@claimsmd.net
-      console.log("Sending consultation request to info@claimsmd.net:", values);
-      
-      // Simulate form submission with success response
-      setTimeout(() => {
-        console.log(values);
-        setIsSubmitting(false);
-        form.reset();
-        toast({
-          title: "Contact request submitted",
-          description: "Thank you! Your request has been sent to info@claimsmd.net. We'll be in touch soon.",
-        });
-      }, 1000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        title: "Error",
-        description: "Failed to submit request. Please try again later.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-    }
-  }
-
-  const services = [
-    "Medical Billing Audit",
-    "Denial Management",
-    "Patient Eligibility Verification",
-    "Credentialing & Enrollment",
-    "Account Receivable Management",
-    "Healthcare Digital Marketing",
-    "Revenue Cycle Management",
-    "Billing Review Services",
-  ];
-
-  const providers = [
-    "Independent Physicians",
-    "Group Practices",
-    "Hospitals",
-    "Ambulatory Surgery Centers",
-    "Urgent Care Centers",
-    "Mental Health Providers",
-    "Physical Therapy Practices",
-    "Specialty Clinics",
-  ];
+const HeroBanner = () => {
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   return (
-    <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 overflow-hidden pt-28">
-      {/* Background Images Carousel */}
-      <div className="absolute inset-0 z-0">
-        <div className="relative w-full h-full">
-          {/* Image 1 - Doctor with patient consultation */}
-          <img 
-            src="/lovable-uploads/0800fa48-5182-461a-a824-e80043d5b8d2.png" 
-            alt="Healthcare professional consultation" 
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-70 animate-fade-in"
-          />
-          {/* Image 2 - Healthcare professional in scrubs */}
-          <img 
-            src="/lovable-uploads/2dbb8cf1-4b9c-47c6-83bd-0840aa804c33.png" 
-            alt="Healthcare professional in medical scrubs" 
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-0 animate-fade-in animation-delay-[5s]"
-            style={{animationIterationCount: "infinite", animationDuration: "15s"}}
-          />
-          {/* Image 3 - Doctor with stethoscope */}
-          <img 
-            src="/lovable-uploads/f1f473f6-7c7b-4cf0-9777-efcd7b299a75.png" 
-            alt="Doctor with stethoscope in hospital" 
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-0 animate-fade-in animation-delay-[10s]"
-            style={{animationIterationCount: "infinite", animationDuration: "15s"}}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-claimsBlue/90 to-indigo-900/90"></div>
-      </div>
+    <section className="relative bg-gradient-to-br from-claimsBlue via-blue-700 to-blue-900 text-white pt-24 pb-16 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
       
-      {/* Abstract background pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1vcGFjaXR5PSIwLjA1Ij48cGF0aCBkPSJNMCAwaDY0MGwtMTQwIDE0MEgwVjB6IiAvPjxwYXRoIGQ9Ik02NDAgMGg2NDBWMTQwSDUwMEw2NDAgMHoiIC8+PC9nPjwvc3ZnPg==')] opacity-30 mix-blend-overlay"></div>
-      
-      {/* Animated gradient blobs */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-claimsOrange/20 rounded-full filter blur-3xl animate-blob"></div>
-      <div className="absolute -bottom-32 -right-24 w-96 h-96 bg-blue-500/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
-      
-      <div className="container-custom relative z-10 py-32 md:py-38">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Text content */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in font-quicksand">
-              {title}
-            </h1>
-            
-            <p className="text-lg md:text-xl text-white/90 mb-10 animate-fade-in animation-delay-300 font-poppins">
-              {subtitle}
-            </p>
-            
-            <div className="animate-fade-in animation-delay-600 group hidden lg:block">
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content Column */}
+          <div className="space-y-8">
+            {/* Trust Badge */}
+            <div className="flex items-center space-x-2">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <span className="text-sm text-blue-200">Trusted by 500+ Healthcare Providers</span>
+            </div>
+
+            {/* Main Headline */}
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-heading">
+                Excellence in
+                <span className="block text-claimsOrange">Revenue Recovery</span>
+              </h1>
+              <p className="text-xl text-blue-100 leading-relaxed max-w-2xl">
+                Accelerate your revenue cycle with our expert solutions in eligibility, AR management, denial handling & more. Focus on patient care while we maximize your reimbursements.
+              </p>
+            </div>
+
+            {/* Key Benefits */}
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                'Increase Revenue by 25%',
+                'Reduce Denials by 40%',
+                '99.5% Claim Accuracy',
+                '24/7 Expert Support'
+              ].map((benefit, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-blue-100">{benefit}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-claimsOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-medium px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                asChild
+                className="bg-claimsOrange hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                onClick={() => setQuoteModalOpen(true)}
               >
-                <Link to={ctaLink} className="flex items-center">
-                  {ctaText}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
+                Get Free Revenue Analysis
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-claimsBlue font-semibold px-8 py-4 rounded-full transition-all duration-300"
+                onClick={() => setQuoteModalOpen(true)}
+              >
+                Schedule Consultation
               </Button>
             </div>
           </div>
 
-          {/* Right column - Form */}
-          <div className="animate-fade-in animation-delay-300">
-            <div className="relative backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl p-8 border border-white/20 overflow-hidden transform transition-all duration-300 hover:shadow-blue-400/20 hover:border-blue-300/30">
-              {/* Animated background effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 animate-gradient"></div>
-              
-              {/* Glowing corners */}
-              <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-400 to-transparent opacity-20 rounded-full blur-xl"></div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-purple-400 to-transparent opacity-20 rounded-full blur-xl"></div>
-              
-              <h3 className="text-2xl font-bold text-white mb-6 text-center relative font-quicksand">Get Started Today</h3>
-              
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 relative z-10">
-                  <FormField
-                    control={form.control}
-                    name="service"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative group">
-                            <Select 
-                              onValueChange={field.onChange} 
-                              defaultValue={field.value}
-                            >
-                              <SelectTrigger className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
-                                <SelectValue placeholder="Choose a Service" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-white/95 backdrop-blur-md border-white/30 focus:ring-2 focus:ring-blue-400">
-                                {services.map((service, index) => (
-                                  <SelectItem 
-                                    key={index} 
-                                    value={service.toLowerCase().replace(/\s+/g, '-')}
-                                    className="font-poppins"
-                                  >
-                                    {service}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/40 to-purple-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
-                          </div>
-                        </FormControl>
-                        <FormMessage className="text-red-300" />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="provider"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative group">
-                            <Select 
-                              onValueChange={field.onChange} 
-                              defaultValue={field.value}
-                            >
-                              <SelectTrigger className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
-                                <SelectValue placeholder="Choose Provider Type" />
-                              </SelectTrigger>
-                              <SelectContent className="bg-white/95 backdrop-blur-md border-white/30 focus:ring-2 focus:ring-blue-400">
-                                {providers.map((provider, index) => (
-                                  <SelectItem 
-                                    key={index} 
-                                    value={provider.toLowerCase().replace(/\s+/g, '-')}
-                                    className="font-poppins"
-                                  >
-                                    {provider}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600/40 to-blue-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
-                          </div>
-                        </FormControl>
-                        <FormMessage className="text-red-300" />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="fullName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative group">
-                            <Input 
-                              placeholder="Full Name" 
-                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4 font-poppins" 
-                              {...field} 
-                            />
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/40 to-purple-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
-                          </div>
-                        </FormControl>
-                        <FormMessage className="text-red-300" />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="phoneNumber"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative group">
-                            <Input 
-                              placeholder="Phone Number" 
-                              type="tel" 
-                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4 font-poppins" 
-                              {...field} 
-                            />
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-orange-600/40 to-yellow-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
-                          </div>
-                        </FormControl>
-                        <FormMessage className="text-red-300" />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="relative group">
-                            <Input 
-                              placeholder="Email Address" 
-                              type="email" 
-                              className="h-12 text-base bg-white/20 border-white/30 text-white placeholder-white/60 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all pl-4 font-poppins" 
-                              {...field} 
-                            />
-                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600/40 to-blue-600/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity rounded-lg"></div>
-                          </div>
-                        </FormControl>
-                        <FormMessage className="text-red-300" />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-600 text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-white/10 font-poppins"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center">
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Processing...
-                      </span>
-                    ) : (
-                      <span className="flex items-center justify-center">
-                        Request Free Consultation
-                        <Send size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    )}
-                  </Button>
-                  
-                  <p className="text-center text-xs text-white/70 mt-4">
-                    By submitting this form, you agree to our <Link to="/privacy-policy" className="text-blue-300 hover:text-blue-200 hover:underline">Privacy Policy</Link>.
-                  </p>
-                </form>
-              </Form>
-              
-              {/* Decorative elements */}
-              <div className="absolute top-1/2 left-0 w-1 h-16 bg-gradient-to-b from-transparent via-blue-400 to-transparent transform -translate-y-1/2 rounded-full"></div>
-              <div className="absolute top-1/2 right-0 w-1 h-16 bg-gradient-to-b from-transparent via-purple-400 to-transparent transform -translate-y-1/2 rounded-full"></div>
+          {/* Image Column */}
+          <div className="relative">
+            <div className="relative z-10">
+              <img 
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Professional female healthcare provider"
+                className="rounded-2xl shadow-2xl w-full h-auto max-w-lg mx-auto"
+              />
+              {/* Floating Stats Cards */}
+              <div className="absolute -top-4 -left-4 bg-white text-claimsBlue rounded-xl p-4 shadow-lg">
+                <div className="text-2xl font-bold">98.7%</div>
+                <div className="text-sm">Success Rate</div>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-claimsOrange text-white rounded-xl p-4 shadow-lg">
+                <div className="text-2xl font-bold">$2M+</div>
+                <div className="text-sm">Recovered</div>
+              </div>
             </div>
-
-            <div className="mt-6 flex justify-center lg:hidden">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-claimsOrange to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white font-medium px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                asChild
-              >
-                <Link to={ctaLink} className="flex items-center">
-                  {ctaText}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </Button>
-            </div>
+            
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-claimsOrange/20 to-blue-500/20 rounded-2xl blur-3xl transform scale-110"></div>
           </div>
         </div>
       </div>
-      
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" className="w-full text-white">
-          <path fill="currentColor" fillOpacity="1" d="M0,32L120,37.3C240,43,480,53,720,53.3C960,53,1200,43,1320,37.3L1440,32L1440,60L1320,60C1200,60,960,60,720,60C480,60,240,60,120,60L0,60Z"></path>
-        </svg>
-      </div>
-    </div>
+
+      {/* Quote Form Modal */}
+      <QuoteFormModal 
+        open={quoteModalOpen} 
+        onOpenChange={setQuoteModalOpen} 
+      />
+    </section>
   );
 };
 

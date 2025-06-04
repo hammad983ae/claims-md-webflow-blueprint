@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
-import { Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Instagram, Mail, MapPin, Phone, Facebook } from 'lucide-react';
+import { FaXTwitter, FaThreads } from 'react-icons/fa6';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -62,14 +63,14 @@ const Footer = () => {
               
               {/* Social Media Icons */}
               <li>
-                <div className="flex space-x-4 mt-4">
+                <div className="flex space-x-3 mt-4">
                   <a 
-                    href="https://www.linkedin.com/company/claimsmd" 
+                    href="https://www.linkedin.com/company/claims-md" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="bg-white/10 p-2 rounded-full hover:bg-claimsOrange transition-colors"
                   >
-                    <Linkedin className="h-5 w-5 text-white" />
+                    <Linkedin className="h-4 w-4 text-white" />
                   </a>
                   <a 
                     href="https://www.instagram.com/claimsmd/" 
@@ -77,7 +78,31 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="bg-white/10 p-2 rounded-full hover:bg-claimsOrange transition-colors"
                   >
-                    <Instagram className="h-5 w-5 text-white" />
+                    <Instagram className="h-4 w-4 text-white" />
+                  </a>
+                  <a 
+                    href="https://x.com/ClaimsMd" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-white/10 p-2 rounded-full hover:bg-claimsOrange transition-colors"
+                  >
+                    <FaXTwitter className="h-4 w-4 text-white" />
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/claimsmd.net" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-white/10 p-2 rounded-full hover:bg-claimsOrange transition-colors"
+                  >
+                    <Facebook className="h-4 w-4 text-white" />
+                  </a>
+                  <a 
+                    href="https://www.threads.com/@claimsmd" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-white/10 p-2 rounded-full hover:bg-claimsOrange transition-colors"
+                  >
+                    <FaThreads className="h-4 w-4 text-white" />
                   </a>
                 </div>
               </li>
@@ -86,25 +111,25 @@ const Footer = () => {
         </div>
 
         {/* Footer Links Menu */}
-<div className="mt-4">
-  <ul className="flex justify-center space-x-6 text-sm text-gray-300">
-    <li>
-      <Link to="/sitemap" className="hover:text-claimsOrange transition-colors">
-        Sitemap
-      </Link>
-    </li>
-    <li>
-      <Link to="/privacy-policy" className="hover:text-claimsOrange transition-colors">
-        Privacy Policy
-      </Link>
-    </li>
-    <li>
-      <Link to="/terms-conditions" className="hover:text-claimsOrange transition-colors">
-        Terms & Conditions
-      </Link>
-    </li>
-  </ul>
-</div>
+        <div className="mt-4">
+          <ul className="flex justify-center space-x-6 text-sm text-gray-300">
+            <li>
+              <Link to="/sitemap" className="hover:text-claimsOrange transition-colors">
+                Sitemap
+              </Link>
+            </li>
+            <li>
+              <Link to="/privacy-policy" className="hover:text-claimsOrange transition-colors">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/terms-conditions" className="hover:text-claimsOrange transition-colors">
+                Terms & Conditions
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         
         {/* Copyright */}
