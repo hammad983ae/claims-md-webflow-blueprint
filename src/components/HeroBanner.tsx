@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { ArrowRight, Star, CheckCircle, MessageCircle } from 'lucide-react';
 import QuoteFormModal from './QuoteFormModal';
+import HeroFloatingForm from './HeroFloatingForm';
 
 // Define props interface but ignore them since this component uses its own content
 interface HeroBannerProps {
@@ -14,6 +15,7 @@ interface HeroBannerProps {
 
 const HeroBanner = (props: HeroBannerProps) => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [floatingFormOpen, setFloatingFormOpen] = useState(false);
 
   return (
     <>
@@ -114,10 +116,28 @@ const HeroBanner = (props: HeroBannerProps) => {
           </div>
         </div>
 
+        {/* Floating Contact Button */}
+        <div className="fixed bottom-8 right-8 z-40">
+          <Button
+            onClick={() => setFloatingFormOpen(true)}
+            className="bg-claimsOrange hover:bg-orange-600 text-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 group"
+            size="lg"
+          >
+            <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform" />
+            <span className="ml-2 hidden sm:inline">Quick Contact</span>
+          </Button>
+        </div>
+
         {/* Quote Form Modal */}
         <QuoteFormModal 
           open={quoteModalOpen} 
           onOpenChange={setQuoteModalOpen} 
+        />
+
+        {/* Floating Form */}
+        <HeroFloatingForm 
+          isVisible={floatingFormOpen}
+          onClose={() => setFloatingFormOpen(false)}
         />
       </section>
     </>
