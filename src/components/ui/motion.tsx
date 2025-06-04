@@ -7,6 +7,7 @@ interface MotionProps {
   transition?: Record<string, any>;
   whileHover?: Record<string, any>;
   whileTap?: Record<string, any>;
+  whileInView?: Record<string, any>;
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -21,6 +22,7 @@ const createAnimatedComponent = (Component: keyof JSX.IntrinsicElements) => {
     transition, 
     whileHover,
     whileTap,
+    whileInView,
     children, 
     className, 
     style,
@@ -30,10 +32,25 @@ const createAnimatedComponent = (Component: keyof JSX.IntrinsicElements) => {
     const [isClient, setIsClient] = React.useState(false);
     const [isHovering, setIsHovering] = React.useState(false);
     const [isTapping, setIsTapping] = React.useState(false);
+    const [isInView, setIsInView] = React.useState(false);
+    const elementRef = React.useRef<HTMLElement>(null);
 
     React.useEffect(() => {
       setIsClient(true);
-    }, []);
+      
+      // Simple intersection observer for whileInView
+      if (whileInView && elementRef.current) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsInView(entry.isIntersecting);
+          },
+          { threshold: 0.1 }
+        );
+        
+        observer.observe(elementRef.current);
+        return () => observer.disconnect();
+      }
+    }, [whileInView]);
 
     // Base styles
     let baseStyle: React.CSSProperties = { ...style };
@@ -49,21 +66,23 @@ const createAnimatedComponent = (Component: keyof JSX.IntrinsicElements) => {
         transition: `transform ${transitionDuration}s ${transitionEase} ${transitionDelay}s, opacity ${transitionDuration}s ${transitionEase} ${transitionDelay}s`,
       };
       
-      // Add animate styles
-      if (animate) {
+      // Add animate styles or whileInView styles when in view
+      const targetAnimation = (isInView && whileInView) ? whileInView : animate;
+      
+      if (targetAnimation) {
         baseStyle = {
           ...baseStyle,
-          opacity: animate.opacity !== undefined ? animate.opacity : baseStyle.opacity,
-          transform: animate.y 
-            ? `translateY(${animate.y}px)` 
-            : (animate.x 
-              ? `translateX(${animate.x}px)` 
-              : (animate.scale 
-                ? `scale(${animate.scale})` 
+          opacity: targetAnimation.opacity !== undefined ? targetAnimation.opacity : baseStyle.opacity,
+          transform: targetAnimation.y 
+            ? `translateY(${targetAnimation.y}px)` 
+            : (targetAnimation.x 
+              ? `translateX(${targetAnimation.x}px)` 
+              : (targetAnimation.scale 
+                ? `scale(${targetAnimation.scale})` 
                 : baseStyle.transform)),
         };
-      } else if (initial) {
-        // Use initial styles if animate not provided
+      } else if (initial && !isInView && whileInView) {
+        // Use initial styles if whileInView is set but element is not in view
         baseStyle = {
           ...baseStyle,
           opacity: initial.opacity !== undefined ? initial.opacity : baseStyle.opacity,
@@ -132,6 +151,7 @@ const createAnimatedComponent = (Component: keyof JSX.IntrinsicElements) => {
     return React.createElement(
       Component,
       {
+        ref: elementRef,
         className,
         style: baseStyle,
         ...eventHandlers,

@@ -4,7 +4,15 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, CheckCircle } from 'lucide-react';
 import QuoteFormModal from './QuoteFormModal';
 
-const HeroBanner = () => {
+// Define props interface but ignore them since this component uses its own content
+interface HeroBannerProps {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const HeroBanner = (props: HeroBannerProps) => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   return (
