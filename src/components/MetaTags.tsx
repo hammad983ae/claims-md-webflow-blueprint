@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 interface MetaTagsProps {
   page: string;
@@ -110,13 +110,13 @@ const MetaTags = ({ page }: MetaTagsProps) => {
     }
   };
 
-  return (
-    <Helmet>
-      <title>{meta[page]?.title || "ClaimsMD - Medical Billing Solutions"}</title>
-      <meta name="description" content={meta[page]?.description || "ClaimsMD provides comprehensive medical billing solutions for healthcare providers."} />
-      <meta name="keywords" content={meta[page]?.keywords || "Medical Billing, Healthcare, Revenue Cycle Management"} />
-    </Helmet>
-  );
+  // return (
+  //   // <Helmet>
+  //   //   <title>{meta[page]?.title || "ClaimsMD - Medical Billing Solutions"}</title>
+  //   //   <meta name="description" content={meta[page]?.description || "ClaimsMD provides comprehensive medical billing solutions for healthcare providers."} />
+  //   //   <meta name="keywords" content={meta[page]?.keywords || "Medical Billing, Healthcare, Revenue Cycle Management"} />
+  //   // </Helmet>
+  // );
 };
 
 export default MetaTags;

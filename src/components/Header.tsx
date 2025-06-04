@@ -38,7 +38,7 @@ const Header = () => {
     { name: 'Credentialing & Enrollment', path: '/services/credentialing-enrollment' },
     { name: 'New Practice Setup', path: '/services/new-practice-setup' },
     { name: 'Reputation Management', path: '/services/reputation-management' },
-    { name: 'Healthcare Digital Marketing', path: '/services/healthcare-digital-marketing' },
+    // { name: 'Healthcare Digital Marketing', path: '/services/healthcare-digital-marketing' },
   ];
 
   const valueItems = [

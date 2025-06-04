@@ -19,7 +19,7 @@ const Footer = () => {
             {/* Resources Section */}
             <h4 className="text-lg font-bold mb-4 mt-8 text-white border-b border-claimsOrange pb-1 w-24">Resources</h4>
             <ul className="space-y-2">
-              <li><Link to="/blog" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Blog</Link></li>
+              <li><Link to="/message-from-ceo" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Message From CEO</Link></li>
               <li><Link to="/specialties" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Specialties</Link></li>
               <li><Link to="/about" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Case Studies</Link></li>
               <li><Link to="/about" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Testimonials</Link></li>
@@ -84,6 +84,28 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+
+        {/* Footer Links Menu */}
+<div className="mt-4">
+  <ul className="flex justify-center space-x-6 text-sm text-gray-300">
+    <li>
+      <Link to="/sitemap" className="hover:text-claimsOrange transition-colors">
+        Sitemap
+      </Link>
+    </li>
+    <li>
+      <Link to="/privacy-policy" className="hover:text-claimsOrange transition-colors">
+        Privacy Policy
+      </Link>
+    </li>
+    <li>
+      <Link to="/terms-conditions" className="hover:text-claimsOrange transition-colors">
+        Terms & Conditions
+      </Link>
+    </li>
+  </ul>
+</div>
+
         
         {/* Copyright */}
         <div className="border-t border-gray-600 pt-4">

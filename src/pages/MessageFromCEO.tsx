@@ -156,8 +156,8 @@ const MessageFromCEO = () => {
               </p>
 
               <div className="bg-gradient-to-r from-claimsBlue/10 to-indigo-100 p-8 rounded-lg text-center">
-                <p className="text-gray-700 mb-2">Warm regards,</p>
-                <p className="text-xl font-bold text-claimsBlue mb-1">[Your Name]</p>
+                {/* <p className="text-gray-700 mb-2">Warm regards,</p>
+                <p className="text-xl font-bold text-claimsBlue mb-1">[Your Name]</p> */}
                 <p className="text-gray-600">CEO, ClaimsMD</p>
               </div>
             </motion.div>
