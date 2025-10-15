@@ -95,7 +95,7 @@ const HeroBanner = (props: HeroBannerProps) => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-white text-white hover:bg-white hover:text-claimsBlue font-semibold px-8 py-4 rounded-full transition-all duration-300"
+                  className="border-2 border-white bg-claimsBlue text-white hover:bg-white hover:text-claimsBlue font-semibold px-8 py-4 rounded-full transition-all duration-300"
                   onClick={() => setQuoteModalOpen(true)}
                 >
                   Schedule Consultation
