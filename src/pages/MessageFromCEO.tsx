@@ -35,7 +35,7 @@ const MessageFromCEO = () => {
   ];
 
   return (
-    <Layout metaPage="message-from-ceo">
+    <Layout metaPage="ceoMessage">
       {/* Hero Section */}
       <section className="py-24 md:py-32 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom">
@@ -73,7 +73,7 @@ const MessageFromCEO = () => {
               <h2 className="text-3xl font-bold text-claimsBlue mb-6">Welcome to ClaimsMD,</h2>
               
               <p className="text-gray-700 leading-relaxed mb-6">
-                As the founder and CEO of ClaimsMD, I want to personally thank you for taking the time to learn more about our company and the services we offer. At ClaimsMD, we are more than just a medical billing company – we are your partner in success, dedicated to helping healthcare providers like you focus on what truly matters: delivering exceptional patient care.
+                As the founder and CEO of ClaimsMD, I want to personally thank you for taking the time to learn more about our company and the services we offer. We are more than just a medical billing company – we are your partner in success, dedicated to helping healthcare providers like you focus on what truly matters: delivering exceptional patient care.
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -106,7 +106,7 @@ const MessageFromCEO = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-claimsBlue mb-4">Our Core Values</h2>
             <p className="text-gray-700 max-w-3xl mx-auto">
-              At ClaimsMD, our work is guided by a set of core values that define who we are and how we serve our clients:
+              Our work is guided by a set of core values that define who we are and how we serve our clients:
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

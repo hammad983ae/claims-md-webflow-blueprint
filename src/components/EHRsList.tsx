@@ -50,31 +50,31 @@ const EHRsList = () => {
   }, [api]);
 
   const ehrs: EHRProps[] = [
-    { name: "Epic", logo: "/lovable-uploads/546bcc39-9c9f-41e0-bb30-958d93ad123e.png" },
-    { name: "Cerner", logo: "/lovable-uploads/f92d274b-ac77-4a8a-8a6a-7da786f8d2e8.png" },
-    { name: "Allscripts", logo: "/lovable-uploads/752d9dfe-2c07-4d83-aae6-d1f830ebac94.png" },
-    { name: "eClinicalWorks", logo: "/lovable-uploads/f5028842-a4fa-4458-bb36-d530b9bcc47b.png" },
-    { name: "NextGen", logo: "/lovable-uploads/303e5be8-6707-4527-90f9-6daecc9c0659.png" },
-    { name: "Athenahealth", logo: "/lovable-uploads/13ac07b1-638e-4c71-8220-4f7ad08014e4.png" },
-    { name: "SimplePractice", logo: "/lovable-uploads/13ea3879-e2a9-4542-919e-c7f536cb186c.png" },
-    { name: "PracticeSuite", logo: "/lovable-uploads/dcc1175d-e6db-460b-bc9e-3265769aa66f.png" },
-    { name: "Office Ally", logo: "/lovable-uploads/86124a28-5d36-48ff-8d25-9345c4319b51.png" },
-    { name: "CollaborateMD", logo: "/lovable-uploads/5f24bc9c-7cd0-4ccb-9f04-d932e7a3c490.png" },
-    { name: "drchrono", logo: "/lovable-uploads/976df11d-b89a-4dcd-9cd8-7ac8a3747cb6.png" },
-    { name: "Azalea Health", logo: "/lovable-uploads/f23c2416-285c-409b-be0b-9c9e1a812b44.png" },
-    { name: "Experity", logo: "/lovable-uploads/7806888e-cb80-4817-9ec1-94eb648c43a4.png" },
-    { name: "Genesis", logo: "/lovable-uploads/2e3f5aba-a8f8-425e-b044-62afc42576e3.png" },
-    { name: "Practice Fusion", logo: "/lovable-uploads/4cb50503-2a89-41f7-ba46-14708f8c9269.png" },
-    { name: "Greenway Health", logo: "/lovable-uploads/e983f67e-3e02-48f0-89aa-7781ab1b0dc2.png" },
-    { name: "HealthFusion", logo: "/lovable-uploads/9d869156-5cf9-4ae5-ae72-51398ce5a356.png" },
-    { name: "Amazing Charts", logo: "/lovable-uploads/1a80e61e-42e0-4aff-8f0c-fe3ea78acb2a.png" },
-    { name: "eMDs", logo: "/lovable-uploads/2b7dd5ac-4a8f-48e8-a673-e56100b4da81.png" },
-    { name: "GE Healthcare", logo: "/lovable-uploads/bc1e6d8a-975d-4e5a-87a3-716ebf512dbf.png" },
-    { name: "WebPT", logo: "/lovable-uploads/83f987b0-eb2a-42e8-a3af-ffab5bcda59e.png" },
-    { name: "CureMD", logo: "/lovable-uploads/1c5472d7-e4f4-4600-aaeb-caf82e38a788.png" },
-    { name: "Tebra", logo: "/lovable-uploads/3f7fce13-b3e1-49a8-bcba-72f1d88148ac.png" },
-    { name: "ICANotes", logo: "/lovable-uploads/2959b0c8-5e4e-4840-b6a3-f5d9c45cb0fe.png" },
-    { name: "RXNT", logo: "/lovable-uploads/5d95e10d-4aee-4849-8304-3c28748ee8d7.png" },
+    { name: "Epic", logo: "/images/ehrs/epic-logo.png" },
+    { name: "Cerner", logo: "/images/ehrs/cerner-logo.png" },
+    { name: "Allscripts", logo: "/images/ehrs/allscripts-logo.png" },
+    { name: "eClinicalWorks", logo: "/images/ehrs/eclinicalworks-logo.png" },
+    { name: "NextGen", logo: "/images/ehrs/nextgen-logo.png" },
+    { name: "Athenahealth", logo: "/images/ehrs/athenahealth-logo.png" },
+    { name: "SimplePractice", logo: "/images/ehrs/simplepractice-logo.png" },
+    { name: "PracticeSuite", logo: "/images/ehrs/practicesuite-logo.png" },
+    { name: "Office Ally", logo: "/images/ehrs/office-ally-logo.png" },
+    { name: "CollaborateMD", logo: "/images/ehrs/collaboratemd-logo.png" },
+    { name: "drchrono", logo: "/images/ehrs/drchrono-logo.png" },
+    { name: "Azalea Health", logo: "/images/ehrs/azalea-health-logo.png" },
+    { name: "Experity", logo: "/images/ehrs/experity-logo.png" },
+    { name: "Genesis", logo: "/images/ehrs/genesis-logo.png" },
+    { name: "Practice Fusion", logo: "/images/ehrs/practice-fusion-logo.png" },
+    { name: "Greenway Health", logo: "/images/ehrs/greenway-health-logo.png" },
+    { name: "HealthFusion", logo: "/images/ehrs/healthfusion-logo.png" },
+    { name: "Amazing Charts", logo: "/images/ehrs/amazing-charts-logo.png" },
+    { name: "eMDs", logo: "/images/ehrs/emds-logo.png" },
+    { name: "GE Healthcare", logo: "/images/ehrs/ge-healthcare-logo.png" },
+    { name: "WebPT", logo: "/images/ehrs/webpt-logo.png" },
+    { name: "CureMD", logo: "/images/ehrs/curemd-logo.png" },
+    { name: "Tebra", logo: "/images/ehrs/tebra-logo.png" },
+    { name: "ICANotes", logo: "/images/ehrs/icanotes-logo.png" },
+    { name: "RXNT", logo: "/images/ehrs/rxnt-logo.png" },
   ];
 
   return (
@@ -109,6 +109,11 @@ const EHRsList = () => {
                         src={ehr.logo} 
                         alt={`${ehr.name} logo`} 
                         className="w-20 h-20 object-contain transform transition-transform hover:scale-110 duration-300" 
+                        onError={(e) => {
+                          // eslint-disable-next-line no-console
+                          console.warn('EHR logo failed to load:', ehr.name, (e.target as HTMLImageElement).src);
+                          (e.target as HTMLImageElement).src = '/placeholder.svg';
+                        }}
                       />
                     </div>
                     <p className="font-outfit font-semibold text-center text-gray-800">{ehr.name}</p>

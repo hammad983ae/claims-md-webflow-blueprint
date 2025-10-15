@@ -81,18 +81,10 @@ const ServiceDetail = ({
                   {subtitle}
                 </motion.p>
               )}
-              <motion.p 
-                className="text-lg text-white/90 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {description}
-              </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <Button size="lg" className="bg-white text-claimsBlue hover:bg-gray-100" asChild>
                   <Link to="/contact">Get Started</Link>

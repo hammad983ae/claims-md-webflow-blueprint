@@ -87,7 +87,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "info@claimsmd.com",
+      details: "info@claimsmd.net",
       description: "We'll respond within 24 hours"
     },
     {

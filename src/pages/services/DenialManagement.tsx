@@ -1,7 +1,6 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-import HealthcareProfessional from '../../Assets/Healthcare Professional.jpeg';
 
 const DenialManagement = () => {
   const denialSteps = [
@@ -37,11 +36,11 @@ const DenialManagement = () => {
   ];
 
   const targetAudience = [
-    "Small practices looking to recover lost revenue and reduce administrative burdens",
-    "Multi-specialty clinics needing to address denial trends across multiple specialties",
-    "Large healthcare organizations seeking to streamline denial management for high claim volumes",
-    "Practices with high denial rates wanting to identify and resolve the root causes of denials",
-    "New practices looking to establish best practices to minimize denials from the start"
+    "Healthcare practices experiencing high claim denial rates",
+    "Medical offices looking to improve their appeal success rate",
+    "Providers struggling with revenue loss due to denied claims",
+    "Practices wanting to implement proactive denial prevention strategies",
+    "Healthcare organizations seeking to optimize their revenue cycle performance"
   ];
 
   const denialFAQs = [
@@ -72,12 +71,12 @@ const DenialManagement = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="denialManagement">
       <ServiceDetail
         title="Denial Management"
         subtitle="Turn Denials into Revenue"
-        description="Claim denials are one of the most significant challenges healthcare providers face today. On average, 5-10% of claims are denied on the first submission, and without proper management, these denials can lead to substantial revenue loss and administrative burdens. At ClaimsMD, we specialize in denial management services designed to identify, resolve, and prevent claim denials. Our proactive approach ensures that your practice recovers lost revenue, reduces denial rates, and maintains a healthy cash flow. Let us help you turn denials into revenue so you can focus on what matters most – patient care."
-        image={HealthcareProfessional}
+        description="We specialize in denial management services that help healthcare practices recover lost revenue and reduce claim rejections. Our proactive approach identifies denial patterns and implements strategies to prevent future issues."
+        image="/images/services/denial-management.jpg"
         features={[
           "Comprehensive denial analysis and pattern identification",
           "Expert claim correction and resubmission services",

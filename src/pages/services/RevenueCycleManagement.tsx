@@ -1,7 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-import DEP from '../../Assets/Doctor Engaging with Patient.jpeg';
+
 
 const RevenueCycleManagement = () => {
   const rcmSteps = [
@@ -84,12 +84,12 @@ const RevenueCycleManagement = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="revenueCycleManagement">
       <ServiceDetail
         title="Revenue Cycle Management"
         subtitle="Optimize Your Practice's Financial Health"
-        description="In the fast-paced and ever-changing world of healthcare, managing your practice's revenue cycle can be a daunting task. From patient registration to final payment posting, each step in the process must be handled with precision to ensure timely reimbursements and financial stability. At ClaimsMD, we specialize in Revenue Cycle Management (RCM) services designed to streamline your billing processes, maximize revenue, and reduce administrative burdens. With our expertise and advanced technology, we help you navigate the complexities of the revenue cycle, so you can focus on what matters most – delivering exceptional patient care."
-        image={DEP}
+        description="We specialize in Revenue Cycle Management (RCM) services that streamline your entire billing process from patient registration to final payment collection. Our comprehensive approach ensures maximum revenue recovery while minimizing administrative burden."
+        image="/images/services/revenue-cycle-management.png"
         features={[
           "End-to-end revenue cycle oversight from registration to final payment",
           "Key performance indicator monitoring and reporting",

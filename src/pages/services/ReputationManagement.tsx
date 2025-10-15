@@ -76,12 +76,12 @@ const ReputationManagement = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="reputationManagement">
       <ServiceDetail
         title="Reputation Management"
         subtitle="Protect and Enhance Your Practice's Reputation"
-        description="In today's digital age, your practice's reputation is more important than ever. Patients rely on online reviews, ratings, and feedback to choose their healthcare providers. A single negative review or unresolved complaint can significantly impact your practice's credibility, patient trust, and ultimately, your bottom line. At ClaimsMD, we understand the critical role reputation plays in the success of your practice. That's why we offer reputation management services designed to help you monitor, protect, and enhance your online presence. From managing patient reviews to addressing feedback, we ensure your practice maintains a positive reputation that attracts and retains patients."
-        image={HC}
+        description="We understand the critical role reputation plays in healthcare success. Our reputation management services help medical practices build trust, manage online reviews, and maintain a positive public image that attracts and retains patients."
+        image="/images/services/reputation-management.jpg"
         features={[
           "Comprehensive online reputation monitoring across all platforms",
           "Professional review response and management services",

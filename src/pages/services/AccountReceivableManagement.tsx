@@ -76,12 +76,12 @@ const AccountReceivableManagement = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="arServices">
       <ServiceDetail
         title="Account Receivable Management"
         subtitle="Optimize Your Cash Flow and Reduce Outstanding Claims"
-        description="In the complex world of medical billing, managing accounts receivable (AR) is one of the most critical yet challenging aspects of maintaining a healthy revenue cycle. Unresolved AR can lead to cash flow disruptions, increased administrative burdens, and significant revenue loss. At ClaimsMD, we specialize in accounts receivable management services designed to help you recover outstanding payments, reduce aging AR, and improve your practice's financial health. With our proactive approach and advanced technology, we ensure your claims are resolved quickly and your cash flow remains steady."
-        image={Confifent}
+        description="We specialize in accounts receivable management services that help healthcare practices maintain healthy cash flow and reduce outstanding balances. Our comprehensive approach ensures timely collections while maintaining positive patient relationships."
+        image="/images/services/account-receivable-management.jpg"
         features={[
           "Comprehensive aging account analysis and prioritization",
           "Proactive follow-up on unpaid claims with systematic tracking",

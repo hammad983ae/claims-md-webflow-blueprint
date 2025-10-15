@@ -38,24 +38,24 @@ const MetaTags = ({ page }: MetaTagsProps) => {
       keywords: "AR Management, Account Receivable Services, Medical Billing Collections, Revenue Recovery"
     },
     credentialing: {
-      title: "Credentialing and Enrollment - ClaimsMD",
-      description: "Get your providers enrolled and credentialed quickly with our efficient solutions.",
-      keywords: "Provider Credentialing, Enrollment Services, Payer Enrollment, CAQH Setup"
+      title: "Provider Credentialing & Enrollment - ClaimsMD",
+      description: "Streamline provider credentialing and payer enrollment with ClaimsMD's expert credentialing services.",
+      keywords: "Provider Credentialing, Payer Enrollment, Medical Credentialing, CAQH Setup, Insurance Enrollment"
     },
     newPracticeSetup: {
-      title: "New Practice Setup - ClaimsMD",
-      description: "Start your medical practice with our all-in-one setup solutions including billing, credentialing, and marketing.",
-      keywords: "New Practice Setup, Start Medical Practice, Healthcare Startup Services, Practice Management"
+      title: "New Medical Practice Setup - ClaimsMD",
+      description: "Launch your medical practice successfully with ClaimsMD's comprehensive practice setup and billing solutions.",
+      keywords: "New Practice Setup, Medical Practice Launch, Practice Management, Healthcare Startup, Billing Setup"
     },
     reputationManagement: {
-      title: "Reputation Management - ClaimsMD",
-      description: "Boost your online presence and protect your brand with our reputation management solutions.",
-      keywords: "Reputation Management, Online Reviews, Practice Marketing, Healthcare Branding"
+      title: "Healthcare Reputation Management - ClaimsMD",
+      description: "Protect and enhance your medical practice's online reputation with ClaimsMD's reputation management services.",
+      keywords: "Reputation Management, Online Reviews, Healthcare Branding, Medical Practice Reputation, Patient Reviews"
     },
     valueAddedServices: {
-      title: "Value Added Services - ClaimsMD",
-      description: "Enhance your practice operations with our value-added services tailored to your needs.",
-      keywords: "Healthcare Support Services, Value Added Medical Services, Billing Enhancement, Practice Solutions"
+      title: "Value Added Healthcare Services - ClaimsMD",
+      description: "Enhance your practice operations with ClaimsMD's value-added services and specialized healthcare solutions.",
+      keywords: "Value Added Services, Healthcare Support, Practice Enhancement, Medical Billing Add-ons, Healthcare Solutions"
     },
     revenueCycleManagement: {
       title: "Revenue Cycle Management - ClaimsMD",
@@ -73,14 +73,14 @@ const MetaTags = ({ page }: MetaTagsProps) => {
       keywords: "Patient Billing Audit, Billing Review, Claim Accuracy, Medical Billing Evaluation"
     },
     billingReview: {
-      title: "Billing Review Services - ClaimsMD",
-      description: "Ensure billing accuracy and optimize reimbursements through detailed reviews.",
-      keywords: "Billing Review Services, Coding Accuracy, Claim Audit, Billing Compliance"
+      title: "Medical Billing Review Services - ClaimsMD",
+      description: "Optimize billing accuracy and compliance with ClaimsMD's comprehensive billing review and audit services.",
+      keywords: "Billing Review, Medical Billing Audit, Coding Review, Billing Compliance, Revenue Optimization"
     },
     healthcareMarketing: {
-      title: "Healthcare Digital Marketing - ClaimsMD",
-      description: "Grow your practice with targeted healthcare digital marketing strategies.",
-      keywords: "Healthcare Marketing, Digital Marketing for Doctors, SEO Medical Practice, Online Patient Growth"
+      title: "Healthcare Digital Marketing Services - ClaimsMD",
+      description: "Grow your medical practice with ClaimsMD's specialized healthcare digital marketing and patient acquisition strategies.",
+      keywords: "Healthcare Marketing, Medical Practice Marketing, Digital Marketing for Doctors, Patient Acquisition, Healthcare SEO"
     },
     specialties: {
       title: "Medical Billing Specialties - ClaimsMD",
@@ -106,6 +106,49 @@ const MetaTags = ({ page }: MetaTagsProps) => {
       title: "Contact Us - ClaimsMD",
       description: "Get in touch with ClaimsMD for customized medical billing solutions and support.",
       keywords: "Contact ClaimsMD, Billing Consultation, Medical Billing Help, RCM Support"
+    },
+    // Legal and Policy Pages
+    privacyPolicy: {
+      title: "Privacy Policy - ClaimsMD",
+      description: "Learn about ClaimsMD's privacy practices and how we protect your personal information and healthcare data.",
+      keywords: "Privacy Policy, Data Protection, HIPAA Compliance, Healthcare Privacy, Medical Billing Privacy"
+    },
+    termsConditions: {
+      title: "Terms & Conditions - ClaimsMD",
+      description: "Review ClaimsMD's terms and conditions for our medical billing and revenue cycle management services.",
+      keywords: "Terms Conditions, Service Agreement, Medical Billing Terms, Healthcare Services Agreement"
+    },
+    returnPolicy: {
+      title: "Return Policy - ClaimsMD",
+      description: "Understand ClaimsMD's return and refund policy for our medical billing services and solutions.",
+      keywords: "Return Policy, Refund Policy, Service Guarantee, Medical Billing Refunds"
+    },
+    qualityPolicy: {
+      title: "Quality Policy - ClaimsMD",
+      description: "Discover ClaimsMD's commitment to quality assurance and excellence in medical billing services.",
+      keywords: "Quality Policy, Quality Assurance, Medical Billing Standards, Healthcare Quality, Service Excellence"
+    },
+    // Company Pages
+    whoWeAre: {
+      title: "Who We Are - ClaimsMD",
+      description: "Meet the ClaimsMD team and learn about our company history, leadership, and commitment to healthcare providers.",
+      keywords: "Who We Are, ClaimsMD Team, Company History, Healthcare Leadership, Medical Billing Experts"
+    },
+    whyClaimsMD: {
+      title: "Why Choose ClaimsMD - Medical Billing Excellence",
+      description: "Discover why healthcare providers choose ClaimsMD for superior medical billing services and revenue cycle management.",
+      keywords: "Why ClaimsMD, Medical Billing Benefits, Healthcare RCM, Choose ClaimsMD, Billing Excellence"
+    },
+    // Other Pages
+    sitemap: {
+      title: "Sitemap - ClaimsMD",
+      description: "Navigate ClaimsMD's website easily with our comprehensive sitemap of medical billing services and resources.",
+      keywords: "Sitemap, Website Navigation, ClaimsMD Pages, Medical Billing Services Directory"
+    },
+    notFound: {
+      title: "Page Not Found - ClaimsMD",
+      description: "The page you're looking for doesn't exist. Explore ClaimsMD's medical billing services and solutions.",
+      keywords: "404 Error, Page Not Found, ClaimsMD Navigation, Medical Billing Services"
     }
   };
 

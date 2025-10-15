@@ -7,8 +7,7 @@ import EHRsList from '@/components/EHRsList';
 import CounterSection from '@/components/CounterSection';
 import { Button } from '@/components/ui/button';
 import { Check, FileText, Shield, Calendar, ArrowRight, BarChart3, Users, HeartPulse } from 'lucide-react';
-import CMP from '../Assets/Confident Medical Professional Outdoors.jpeg';
-import CPP from '../Assets/Confident Healthcare Professional in Modern Clinic.jpeg';
+
 
 const Index = () => {
   const services = [
@@ -39,7 +38,7 @@ const Index = () => {
   ];
 
   return (
-    <Layout>
+    <Layout metaPage="home">
       {/* Hero Section */}
       <HeroBanner
         title="Streamline Your Medical Billing Process"
@@ -224,7 +223,7 @@ const Index = () => {
 
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src={CPP} 
+                  src="/images/services/confident-healthcare-professional.jpg" 
                   alt="Healthcare team working together" 
                   className="w-full h-64 object-cover object-center"
                 />
@@ -246,8 +245,8 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="section-title">Why Choose ClaimsMD?</h2>
-              <p className="mb-6 text-gray-700">
-                At ClaimsMD, we understand the challenges healthcare providers face with medical billing. Our comprehensive solutions are designed to streamline your revenue cycle, reduce denials, and increase your bottom line.
+              <p className="text-lg text-gray-600 mb-8">
+                We understand the challenges healthcare providers face with medical billing. Our comprehensive solutions help you navigate complex regulations, reduce administrative burden, and maximize your revenue potential.
               </p>
               
               <div className="space-y-4">
@@ -274,7 +273,7 @@ const Index = () => {
             
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img 
-                src={CMP} 
+                src="/images/services/confident-medical-professional.jpg" 
                 alt="Medical billing technology" 
                 className="w-full h-80 object-cover object-center"
               />

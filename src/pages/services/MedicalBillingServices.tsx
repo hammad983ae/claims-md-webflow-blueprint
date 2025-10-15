@@ -1,7 +1,6 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-import MMI from '../../Assets/Medical Monitor Interaction.jpeg';
 
 const MedicalBillingServices = () => {
   const billingSteps = [
@@ -32,21 +31,19 @@ const MedicalBillingServices = () => {
   ];
 
   const outsourcingBenefits = [
-    "Maximized Revenue through expertise that ensures accurate coding, timely claims submission, and proactive denial management to minimize revenue leakage",
-    "Reduced Administrative Burden by freeing up your staff to focus on patient care while we handle the complexities of medical billing",
-    "Improved Compliance to stay up-to-date with the latest regulations and reduce the risk of audits and penalties",
-    "Enhanced Patient Satisfaction through streamlined billing processes that lead to fewer billing errors and faster resolutions",
-    "Scalable Solutions that grow with your practice, ensuring you always have the support you need",
-    "Cutting-edge technology combined with certified billing professionals to deliver results you can count on"
+    "Access to specialized billing expertise and industry best practices",
+    "Reduced administrative overhead and improved staff productivity",
+    "Advanced technology and software without upfront investment",
+    "Consistent billing processes and improved compliance",
+    "Faster claim processing and improved cash flow"
   ];
 
   const targetAudience = [
-    "Small practices looking to maximize revenue and reduce administrative burden",
-    "Large healthcare organizations seeking scalable billing solutions",
-    "Multi-specialty clinics requiring expertise across different medical specialties",
-    "Practices experiencing high denial rates or billing inefficiencies",
-    "Healthcare providers wanting to focus more on patient care rather than billing complexities",
-    "New practices looking to establish efficient billing processes from the start"
+    "Healthcare practices looking to outsource their entire billing operation",
+    "Medical offices wanting to reduce administrative overhead and focus on patient care",
+    "Providers seeking to improve claim acceptance rates and reduce denials",
+    "Practices experiencing revenue cycle inefficiencies and cash flow issues",
+    "Healthcare organizations wanting to leverage advanced billing technology and expertise"
   ];
 
   const billingFAQs = [
@@ -85,8 +82,8 @@ const MedicalBillingServices = () => {
       <ServiceDetail
         title="Medical Billing Services"
         subtitle="Optimize Your Revenue Cycle"
-        description="At ClaimsMD, we understand that medical billing is more than just submitting claims – it's the backbone of your practice's financial health. With ever-changing regulations, complex payer requirements, and the constant pressure to maximize revenue, managing medical billing in-house can be overwhelming. As a trusted leader in medical billing services, we provide end-to-end solutions designed to streamline your revenue cycle, reduce administrative burdens, and ensure you get paid accurately and on time."
-        image={MMI}
+        description="We understand that medical billing is more than just submitting claims – it's about maximizing your revenue while minimizing administrative burden. Our comprehensive medical billing services handle every aspect of the billing process, from claim submission to payment posting."
+        image="/images/services/medical-billing-services.jpg"
         features={[
           "Complete claims submission and processing with proactive follow-up",
           "Comprehensive denial management and appeals process",

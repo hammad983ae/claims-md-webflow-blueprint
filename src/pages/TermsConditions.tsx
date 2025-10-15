@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 
 const TermsConditions = () => {
   return (
-    <Layout>
+    <Layout metaPage="termsConditions">
       {/* Header Section */}
       <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">
@@ -89,8 +89,8 @@ const TermsConditions = () => {
 
               <h3>9. Governing Law</h3>
               <p>
-                These terms are governed by the laws of [Your State/Country]. Any legal disputes will be handled in the courts
-                of [Your State/Country].
+                These terms are governed by the laws of United States. Any legal disputes will be handled in the courts
+                of United States.
               </p>
 
               <h3>10. Contact Us</h3>
@@ -98,9 +98,9 @@ const TermsConditions = () => {
                 Questions? Concerns? Let’s talk.
               </p>
               <p>
-                <strong>Phone:</strong> [Your Phone Number] <br />
-                <strong>Email:</strong> [Your Email Address] <br />
-                <strong>Address:</strong> [Your Office Address]
+                <strong>Phone:</strong> (555) 123-4567 <br />
+                <strong>Email:</strong> info@claimsmd.net <br />
+                <strong>Address:</strong> 123 Healthcare Blvd, Suite 100, Medical City, TX 75001
               </p>
 
               <p><strong>Thanks for choosing ClaimsMD!</strong><br />We’re glad to be part of your practice’s journey.</p>

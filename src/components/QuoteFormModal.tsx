@@ -68,7 +68,7 @@ export function QuoteFormModal({ open, onOpenChange }: QuoteFormModalProps) {
       
       toast({
         title: "Quote Request Submitted",
-        description: "Thank you! Your request has been sent to info@claimsmd.com. We'll get back to you shortly.",
+        description: "Thank you! Your request has been sent to info@claimsmd.net. We'll get back to you shortly.",
         duration: 5000,
       });
       

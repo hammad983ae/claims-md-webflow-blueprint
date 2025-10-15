@@ -31,7 +31,7 @@ const WhyClaimsMD = () => {
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Compliance Assurance",
-      description: "Staying compliant with healthcare regulations is critical to avoiding penalties and audits. At ClaimsMD, we stay up-to-date with the latest industry standards and payer requirements, so you don't have to worry."
+      description: "Staying compliant with healthcare regulations is critical to avoiding penalties and audits. We stay up-to-date with the latest requirements and ensure your practice meets all compliance standards."
     },
     {
       icon: <HeadphonesIcon className="w-8 h-8" />,
@@ -59,7 +59,7 @@ const WhyClaimsMD = () => {
   ];
 
   return (
-    <Layout metaPage="why-claims-md">
+    <Layout metaPage="whyClaimsMD">
       {/* Hero Section */}
       <section className="py-24 md:py-32 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom">
@@ -86,7 +86,7 @@ const WhyClaimsMD = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              At ClaimsMD, we understand that managing medical billing can be overwhelming. Between complex regulations, ever-changing payer requirements, and the need to maximize revenue, it's easy to feel stretched thin. That's where we come in.
+              We understand that managing medical billing can be overwhelming. Between complex regulations, ever-changing payer requirements, and the need to maximize revenue, it's easy to feel stretched thin. That's where we come in.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

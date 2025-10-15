@@ -1,7 +1,7 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-import PMC from '../../Assets/Professional Medical Consultation.jpeg';
+
 
 const NewPracticeSetup = () => {
   const setupSteps = [
@@ -80,12 +80,12 @@ const NewPracticeSetup = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="newPracticeSetup">
       <ServiceDetail
         title="New Practice Setup"
         subtitle="Launch Your Practice with Confidence"
         description="Starting a new healthcare practice is an exciting venture, but it also comes with its fair share of challenges. From navigating complex regulations to setting up efficient billing systems, the process can feel overwhelming. That's where ClaimsMD comes in. We specialize in new practice setup services designed to help you launch your practice smoothly and successfully. From credentialing and billing system setup to compliance and revenue cycle management, we handle the details so you can focus on providing exceptional patient care. Let us help you build a strong foundation for your practice's success."
-        image={PMC}
+        image="/images/services/beautiful-woman-working-office.jpg"
         features={[
           "EHR and practice management system selection assistance",
           "Workflow design and optimization",

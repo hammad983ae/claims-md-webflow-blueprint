@@ -1,37 +1,48 @@
 
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import axios from 'axios'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 export const sendFormToEmail = async (formData: Record<string, any>) => {
-  console.log(`Sending form data to info@claimsmd.com:`, formData);
+  console.log(`Sending form data to info@claimsmd.net:`, formData);
   
   try {
-    // Create email content from form data
-    const emailContent = Object.entries(formData)
-      .map(([key, value]) => `${key}: ${value}`)
-      .join('\n');
+    // Use the proxied API endpoint
+    const apiEndpoint = '/api/send-email';
     
-    // For now, we're simulating the email send
-    // In production, this would integrate with EmailJS, SendGrid, or your backend API
-    const emailData = {
-      to: 'info@claimsmd.com',
-      subject: `New ${formData.formType || 'Contact'} Form Submission`,
-      message: emailContent,
-      timestamp: new Date().toISOString()
-    };
+    console.log('Sending email via serverless function:', apiEndpoint);
     
-    console.log('Email data prepared:', emailData);
+    // Send form data to serverless function
+    const response = await axios.post(apiEndpoint, formData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log('Serverless function response:', response.data);
     
-    return emailData;
+    if (response.data.success) {
+      return response.data;
+    } else {
+      throw new Error(response.data.error || 'Failed to send email');
+    }
+    
   } catch (error) {
-    console.error('Error preparing email:', error);
-    throw error;
+    console.error('Error sending email via serverless function:', error);
+    
+    // Fallback: log the error but don't break the form submission
+    if (axios.isAxiosError(error)) {
+      console.error('Serverless function error:', {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data
+      });
+    }
+    
+    throw new Error('Failed to send email. Please try again or contact us directly.');
   }
 };

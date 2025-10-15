@@ -185,7 +185,7 @@ const Specialties = () => {
   ];
 
   return (
-    <Layout>
+    <Layout metaPage="specialties">
       {/* Hero Section */}
       <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">

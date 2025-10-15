@@ -1,3 +1,4 @@
+// Logo is now served from public directory
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -68,7 +69,7 @@ const Header = () => {
       <div className="flex items-center justify-center gap-10 py-2">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/6d753958-b975-4520-95f7-7a8f853aaf12.png" 
+            src="/images/logos/claimsmd-logo.png" 
             alt="ClaimsMD Logo" 
             className="h-10 md:h-14" 
           />

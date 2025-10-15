@@ -20,6 +20,18 @@ const HeroBanner = (props: HeroBannerProps) => {
   return (
     <>
       <section className="relative bg-gradient-to-br from-claimsBlue via-blue-700 to-blue-900 text-white pt-24 pb-16 overflow-hidden">
+        {/* Female doctor background with transparency */}
+        <div 
+          className="absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: `url('/images/heroes/medical-billing-services-hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-claimsBlue/80 via-blue-700/70 to-blue-900/60"></div>
+        
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-20">
           <div 

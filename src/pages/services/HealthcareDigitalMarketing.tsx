@@ -80,12 +80,12 @@ const HealthcareDigitalMarketing = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="healthcareMarketing">
       <ServiceDetail
         title="Healthcare Digital Marketing"
         subtitle="Grow Your Practice and Connect with Patients"
-        description="In today's digital-first world, having a strong online presence is no longer optional – it's essential. Patients are increasingly turning to the internet to find healthcare providers, read reviews, and make informed decisions about their care. If your practice isn't visible online, you could be missing out on valuable opportunities to attract and retain patients. At ClaimsMD, we specialize in Healthcare Digital Marketing Services designed to help you connect with patients, build trust, and grow your practice. From search engine optimization (SEO) to social media marketing, we create customized strategies that align with your goals and drive measurable results."
-        image={HPP}
+        description="We specialize in Healthcare Digital Marketing Services that help medical practices grow their patient base and enhance their online presence. Our targeted strategies ensure compliance while driving measurable results."
+        image="/images/services/healthcare-digital-marketing.jpg"
         features={[
           "Healthcare-specific SEO optimization",
           "HIPAA-compliant content marketing",

@@ -5,7 +5,7 @@ import CMP from '../../Assets/Confident Medical Professional.jpeg';
 
 const ValueAddedServices = () => {
   return (
-    <Layout>
+    <Layout metaPage="valueAddedServices">
       <ServiceDetail
         title="Value Added Services"
         description="Supplementary services designed to enhance your practice's operational efficiency and financial performance."

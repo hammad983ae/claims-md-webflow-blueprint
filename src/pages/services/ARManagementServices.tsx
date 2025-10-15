@@ -37,11 +37,11 @@ const ARManagementServices = () => {
   ];
 
   const targetAudience = [
-    "Small practices looking to recover lost revenue and reduce administrative burdens",
-    "Multi-specialty clinics needing to address A/R issues across multiple specialties",
-    "Large healthcare organizations seeking to streamline A/R management for high claim volumes",
-    "Practices with high A/R balances wanting to identify and resolve the root causes of outstanding claims",
-    "New practices looking to establish best practices to minimize A/R issues from the start"
+    "Healthcare practices experiencing cash flow issues due to outstanding receivables",
+    "Medical offices looking to improve collection rates and reduce write-offs",
+    "Providers struggling with aging accounts and delayed payments",
+    "Practices wanting to implement effective follow-up strategies for unpaid claims",
+    "Healthcare organizations seeking to optimize their revenue cycle performance"
   ];
 
   const arFAQs = [
@@ -76,12 +76,12 @@ const ARManagementServices = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="arManagement">
       <ServiceDetail
         title="A/R Management Services"
         subtitle="Optimize Your Cash Flow and Reduce Outstanding Claims"
-        description="In the complex world of medical billing, managing accounts receivable (A/R) is one of the most critical yet challenging aspects of maintaining a healthy revenue cycle. Unresolved A/R can lead to cash flow disruptions, increased administrative burdens, and significant revenue loss. At ClaimsMD, we specialize in Accounts Receivable Management Services designed to help you recover outstanding payments, reduce aging A/R, and improve your practice's financial health. With our proactive approach and advanced technology, we ensure your claims are resolved quickly and your cash flow remains steady."
-        image={Confifent}
+        description="We specialize in Accounts Receivable Management Services that help healthcare practices maintain healthy cash flow and reduce outstanding balances. Our comprehensive approach ensures timely collections while maintaining positive patient relationships."
+        image="/images/services/ar-management-services.jpg"
         features={[
           "Comprehensive aging account analysis and prioritization",
           "Proactive follow-up on unpaid claims with systematic tracking",

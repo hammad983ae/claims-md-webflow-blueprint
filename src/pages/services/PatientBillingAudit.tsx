@@ -80,12 +80,12 @@ const PatientBillingAudit = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="patientBillingAudit">
       <ServiceDetail
         title="Patient Billing Audit"
         subtitle="Ensure Accuracy and Compliance in Your Billing Process"
-        description="In the complex world of healthcare billing, errors can easily creep into your patient billing process, leading to claim denials, compliance risks, and lost revenue. A single billing mistake can have a ripple effect, impacting your practice's financial health and patient satisfaction. At ClaimsMD, we specialize in Patient Billing Audit Services designed to identify and resolve billing errors, ensure compliance, and optimize your revenue cycle. Our thorough and systematic approach helps you maintain accurate billing practices, reduce risks, and maximize reimbursements. Let us help you ensure your billing process is as efficient and error-free as possible."
-        image={HealthcareProfessional}
+        description="We specialize in Patient Billing Audit Services that help healthcare practices identify and resolve patient billing issues. Our comprehensive review process ensures accuracy, transparency, and improved patient satisfaction."
+        image="/images/services/patient-billing-audit.jpg"
         features={[
           "Comprehensive billing accuracy assessment and error identification",
           "Compliance review for healthcare regulations and payer requirements",

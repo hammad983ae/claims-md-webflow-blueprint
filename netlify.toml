@@ -1,0 +1,17 @@
+[build]
+  functions = "netlify/functions"
+  publish = "dist"
+
+[dev]
+  command = "npm run dev"
+  port = 8080
+  targetPort = 8080
+  publish = "dist"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"

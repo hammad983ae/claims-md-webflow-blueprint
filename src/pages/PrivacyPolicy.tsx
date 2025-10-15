@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 
 const PrivacyPolicy = () => {
   return (
-    <Layout>
+    <Layout metaPage="privacyPolicy">
       {/* Hero Section */}
       <div className="relative py-32 md:py-48 bg-gradient-to-r from-claimsBlue to-indigo-800">
         <div className="container-custom relative z-10">
@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
               <p>
-                At ClaimsMD, we value your privacy. This Privacy Policy explains how we collect, use, and protect your personal data when you engage with our website or services.
+                We value your privacy. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website or use our services.
                 By using ClaimsMD, you're agreeing to these terms.
               </p>
             </section>

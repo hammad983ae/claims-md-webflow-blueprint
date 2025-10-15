@@ -1,7 +1,6 @@
 
 import Layout from '@/components/Layout';
 import ServiceDetail from '@/components/ServiceDetail';
-import PWP from '../../Assets/Pregnant Woman at Prenatal Examination.jpeg';
 
 const PatientEligibilityVerification = () => {
   const eligibilitySteps = [
@@ -37,11 +36,11 @@ const PatientEligibilityVerification = () => {
   ];
 
   const targetAudience = [
-    "Small practices looking to save time and resources by automating eligibility verification",
-    "Multi-specialty clinics needing to ensure accurate coverage verification across a wide range of services",
-    "Large healthcare organizations seeking to streamline the verification process for high patient volumes",
-    "New practices wanting to establish best practices from the start to avoid costly errors",
-    "Practices with high denial rates looking to reduce denials and improve revenue cycle efficiency"
+    "Healthcare practices struggling with claim denials due to eligibility issues",
+    "Medical offices looking to reduce administrative overhead in verification processes",
+    "Providers seeking to improve patient experience with upfront cost transparency",
+    "Practices wanting to integrate eligibility checks into their existing workflows",
+    "Healthcare organizations focused on reducing revenue cycle delays"
   ];
 
   const eligibilityFAQs = [
@@ -76,12 +75,12 @@ const PatientEligibilityVerification = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="patientEligibilityVerification">
       <ServiceDetail
         title="Patient Eligibility Verification"
         subtitle="Ensure Accurate Reimbursements from the Start"
-        description="At ClaimsMD, we understand that the foundation of a smooth revenue cycle begins with accurate patient eligibility verification. Verifying a patient's insurance coverage before providing services is critical to avoiding claim denials, reducing administrative headaches, and ensuring timely reimbursements. With ever-changing insurance policies and complex payer requirements, manually verifying patient eligibility can be time-consuming and prone to errors. That's why ClaimsMD offers a streamlined, technology-driven solution to handle this process for you – so you can focus on delivering exceptional patient care."
-        image={PWP}
+        description="We understand that the foundation of a smooth revenue cycle begins with accurate patient eligibility verification. That's why we offer a streamlined, technology-driven solution that ensures your claims are submitted with confidence and accuracy."
+        image="/images/services/patient-eligibility-verification-b.jpg"
         features={[
           "Real-time insurance verification with direct payer connections",
           "Patient benefit explanation and coverage confirmation",

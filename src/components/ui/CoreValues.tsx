@@ -27,8 +27,12 @@ const CoreValues = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Core Values</h2>
-        <p className="text-gray-600 mb-12">At ClaimsMD, our work is guided by a set of core values that define who we are and how we serve our clients:</p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-claimsBlue mb-4">Our Core Values</h2>
+          <p className="text-gray-700 max-w-3xl mx-auto">
+            Our work is guided by a set of core values that define who we are and how we serve our clients:
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 gap-8 text-left">
           {values.map((value, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">

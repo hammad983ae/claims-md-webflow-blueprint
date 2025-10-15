@@ -76,12 +76,12 @@ const CredentialingEnrollment = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="credentialing">
       <ServiceDetail
         title="Credentialing & Enrollment"
         subtitle="Streamline Your Path to Reimbursement"
-        description="For healthcare providers, credentialing and enrollment are critical steps in ensuring you can bill insurance companies and receive timely reimbursements for your services. However, the process can be time-consuming, complex, and fraught with potential pitfalls. Missing deadlines, incomplete applications, or errors can lead to delays, denied claims, and lost revenue. At ClaimsMD, we specialize in credentialing and enrollment services designed to simplify this process for you. Our team of experts handles every detail, from initial applications to ongoing maintenance, so you can focus on providing exceptional patient care."
-        image={HC}
+        description="We specialize in credentialing and enrollment services that help healthcare providers navigate the complex process of joining insurance networks. Our expertise ensures timely approval and maximum reimbursement potential."
+        image="/images/services/credentialing-enrollment.jpg"
         features={[
           "Provider enrollment with government and commercial payers",
           "CAQH ProView profile management and quarterly attestations",

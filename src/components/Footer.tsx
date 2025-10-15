@@ -9,21 +9,18 @@ const Footer = () => {
   return (
     <footer className="bg-claimsBlue text-white pt-16 pb-4">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* About Us Column */}
           <div>
             <h4 className="text-lg font-bold mb-4 text-white border-b border-claimsOrange pb-1 w-24">About Us</h4>
             <p className="text-sm text-gray-200 mb-4">
               ClaimsMD is a healthcare revenue cycle management provider aimed at empowering hospitals, group practices, and independent practices.
             </p>
-            
-            {/* Resources Section */}
-            <h4 className="text-lg font-bold mb-4 mt-8 text-white border-b border-claimsOrange pb-1 w-24">Resources</h4>
             <ul className="space-y-2">
               <li><Link to="/message-from-ceo" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Message From CEO</Link></li>
               <li><Link to="/specialties" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Specialties</Link></li>
-              <li><Link to="/about" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Case Studies</Link></li>
-              <li><Link to="/about" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Testimonials</Link></li>
+              <li><Link to="/about" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">About Us</Link></li>
+              <li><Link to="/why-claims-md" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Why ClaimsMD</Link></li>
             </ul>
           </div>
           
@@ -40,6 +37,19 @@ const Footer = () => {
               <li><Link to="/services/new-practice-setup" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Front Office Management</Link></li>
             </ul>
           </div>
+
+          {/* Legal Column */}
+          <div>
+            <h4 className="text-lg font-bold mb-4 text-white border-b border-claimsOrange pb-1 w-20">Legal</h4>
+            <ul className="space-y-2">
+              <li><Link to="/privacy-policy" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Privacy Policy</Link></li>
+              <li><Link to="/return-policy" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Return Policy</Link></li>
+              <li><Link to="/quality-policy" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Quality Policy</Link></li>
+              <li><Link to="/terms-conditions" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Terms & Conditions</Link></li>
+              <li><Link to="/why-claims-md" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Why ClaimsMD</Link></li>
+              <li><Link to="/who-we-are" className="text-gray-200 hover:text-claimsOrange transition-colors text-sm">Who We Are</Link></li>
+            </ul>
+          </div>
           
           {/* Contact Us Column */}
           <div>
@@ -51,7 +61,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-claimsOrange mt-0.5 mr-2" />
-                <span className="text-gray-200 text-sm">info@claimsmd.com</span>
+                <span className="text-gray-200 text-sm">info@claimsmd.net</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-claimsOrange mt-0.5 mr-2" />
@@ -110,27 +120,12 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Links Menu */}
-        <div className="mt-4">
-          <ul className="flex justify-center space-x-6 text-sm text-gray-300">
-            <li>
-              <Link to="/sitemap" className="hover:text-claimsOrange transition-colors">
-                Sitemap
-              </Link>
-            </li>
-            <li>
-              <Link to="/privacy-policy" className="hover:text-claimsOrange transition-colors">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link to="/terms-conditions" className="hover:text-claimsOrange transition-colors">
-                Terms & Conditions
-              </Link>
-            </li>
-          </ul>
+        {/* Sitemap Link */}
+        <div className="text-center mb-4">
+          <Link to="/sitemap" className="text-gray-300 hover:text-claimsOrange transition-colors text-sm">
+            Sitemap
+          </Link>
         </div>
-
         
         {/* Copyright */}
         <div className="border-t border-gray-600 pt-4">

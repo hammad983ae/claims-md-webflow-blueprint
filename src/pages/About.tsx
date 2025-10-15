@@ -201,7 +201,7 @@ const About = () => {
               Our Core Values
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              At ClaimsMD, our work is guided by a set of core values that define who we are and how we serve our clients.
+              Our work is guided by a set of core values that define who we are and how we serve our clients.
             </p>
           </motion.div>
 

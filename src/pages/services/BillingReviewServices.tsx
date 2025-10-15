@@ -80,12 +80,12 @@ const BillingReviewServices = () => {
   ];
 
   return (
-    <Layout metaPage="services">
+    <Layout metaPage="billingReview">
       <ServiceDetail
         title="Billing Review Services"
         subtitle="Optimize Your Revenue and Ensure Compliance"
-        description="In the fast-paced and ever-evolving healthcare industry, maintaining an accurate and efficient billing process is critical to your practice's financial success. Even minor errors in coding, charge entry, or claims submission can lead to claim denials, compliance risks, and lost revenue. At ClaimsMD, we specialize in Billing Review Services designed to identify and resolve billing inefficiencies, ensure compliance, and maximize your reimbursements. Our thorough and systematic approach helps you maintain a healthy revenue cycle, reduce administrative burdens, and focus on what matters most – delivering exceptional patient care."
-        image={CMP}
+        description="We specialize in Billing Review Services that help healthcare practices identify and resolve billing issues before they impact revenue. Our thorough review process ensures accuracy, compliance, and maximum reimbursement potential."
+        image="/images/services/billing-review-services.jpg"
         features={[
           "Comprehensive billing operations assessment",
           "Documentation and coding review",

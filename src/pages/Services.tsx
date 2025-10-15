@@ -73,7 +73,7 @@ const Services = () => {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <img 
-              src="/lovable-uploads/f1f473f6-7c7b-4cf0-9777-efcd7b299a75.png" 
+              src="/images/heroes/medical-billing-services-hero.jpg" 
               alt="Healthcare professional" 
               className="w-full h-full object-cover"
             />

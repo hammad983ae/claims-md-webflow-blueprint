@@ -75,8 +75,8 @@ const MedicalBillingAudit = () => {
       <ServiceDetail
         title="Medical Billing Audits"
         subtitle="Protect Your Practice and Maximize Revenue"
-        description="In the fast-paced world of healthcare, medical billing errors, compliance risks, and inefficiencies can cost your practice thousands of dollars annually. At ClaimsMD, we specialize in medical billing audits designed to identify and resolve these issues, ensuring your practice remains compliant, efficient, and financially healthy."
-        image="/lovable-uploads/f1f473f6-7c7b-4cf0-9777-efcd7b299a75.png"
+        description="We specialize in medical billing audits that identify revenue leakage, compliance issues, and optimization opportunities. Our comprehensive review process helps maximize your reimbursements while ensuring regulatory compliance."
+        image="/images/services/medical-billing-audit.jpg"
         features={[
           "Identify coding mistakes, duplicate billing, and incorrect charge entries",
           "Ensure compliance with ever-changing healthcare regulations",

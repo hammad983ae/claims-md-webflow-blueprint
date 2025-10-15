@@ -50,7 +50,7 @@ const Sitemap = () => {
   ];
 
   return (
-    <Layout>
+    <Layout metaPage="sitemap">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-claimsBlue to-indigo-900 py-16">
         <div className="container-custom relative z-10">

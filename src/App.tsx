@@ -27,6 +27,9 @@ import BillingReviewServices from '@/pages/services/BillingReviewServices';
 import HealthcareDigitalMarketing from '@/pages/services/HealthcareDigitalMarketing';
 import MessageFromCEO from '@/pages/MessageFromCEO';
 import WhyClaimsMD from '@/pages/WhyClaimsMD';
+import ReturnPolicy from '@/pages/ReturnPolicy';
+import QualityPolicy from '@/pages/QualityPolicy';
+import WhoWeAre from '@/pages/WhoWeAre';
 import TawTo from './components/TawTo';
 import TawkTest from './components/TawkTest';
 
@@ -63,6 +66,18 @@ const router = createBrowserRouter([
   {
     path: "/terms-conditions",
     element: <TermsConditions />
+  },
+  {
+    path: "/return-policy",
+    element: <ReturnPolicy />
+  },
+  {
+    path: "/quality-policy",
+    element: <QualityPolicy />
+  },
+  {
+    path: "/who-we-are",
+    element: <WhoWeAre />
   },
   {
     path: "/sitemap",
