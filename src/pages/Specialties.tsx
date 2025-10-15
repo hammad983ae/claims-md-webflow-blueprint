@@ -344,8 +344,8 @@ const Specialties = () => {
             </div>
             <div className="relative rounded-lg overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-300">
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600" 
-                alt="Medical Specialty Team" 
+                src="/images/heroes/specialties-hero.jpg" 
+                alt="ClaimsMD Specialties" 
                 className="rounded-lg w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-claimsBlue/40 to-transparent rounded-lg"></div>
@@ -551,7 +551,7 @@ const Specialties = () => {
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button variant="outline" className="text-white border-white hover:bg-white/10 transform hover:-translate-y-1 transition-all duration-300" size="lg" asChild>
+            <Button variant="outline" className="bg-claimsBlue text-white border-white hover:bg-white hover:text-claimsBlue transform hover:-translate-y-1 transition-all duration-300" size="lg" asChild>
               <Link to="/services">Explore All Services</Link>
             </Button>
           </div>

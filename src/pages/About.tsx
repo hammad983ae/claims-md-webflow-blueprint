@@ -88,8 +88,8 @@ const About = () => {
             >
               <div className="relative z-10">
                 <img 
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                  alt="Young female healthcare professional"
+                  src="/images/heroes/about-us-hero.jpg"
+                  alt="ClaimsMD About Us"
                   className="rounded-2xl shadow-2xl w-full h-auto max-w-lg mx-auto"
                 />
                 {/* Floating Stats Cards */}
@@ -144,8 +144,8 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1594824706977-5b9ad41ee57e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Female doctor with stethoscope"
+                src="/images/heroes/about-us-hero.jpg"
+                alt="ClaimsMD Mission"
                 className="rounded-2xl shadow-xl w-full h-auto"
               />
             </motion.div>
