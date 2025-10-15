@@ -85,13 +85,13 @@ const Header = () => {
                     <NavigationMenuTrigger className="text-gray-700 hover:text-claimsBlue font-medium transition-colors px-2 py-1 text-sm">
                       {item.name}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-white rounded-md shadow-lg border border-gray-200 w-[380px] p-4 md:w-[400px] mt-1 z-[9999]">
+                    <NavigationMenuContent className="bg-white rounded-md shadow-lg border border-gray-200 w-[600px] p-4 md:w-[650px] mt-1 z-[9999]">
                       <ul className="grid gap-3 md:grid-cols-2">
                         {item.submenuItems?.map((subItem) => (
                           <li key={subItem.path}>
                             <Link
                               to={subItem.path}
-                              className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-[#071078] hover:text-white focus:bg-[#071078] focus:text-white text-sm"
+                              className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-[#071078] hover:text-white focus:bg-[#071078] focus:text-white text-sm whitespace-nowrap"
                             >
                               <div className="font-medium">{subItem.name}</div>
                             </Link>
